@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icon/home-button.png</file>
+    <file>icon/icons8-back-64-_1_.ico</file>
+    <file>icon/icons8-back-64.ico</file>
+    <file>icon/icons8-decryption-62.ico</file>
+    <file>icon/icons8-decryption-62-_1_.ico</file>
+    <file>icon/icons8-encryption-48.ico</file>
+    <file>icon/icons8-encryption-48-_1_.ico</file>
+    <file>icon/collapse.ico</file>
+    <file>icon/expand.ico</file>
+    <file>icon/icons8-exit-48.ico</file>
+    <file>icon/icons8-exit-50.ico</file>
+  </qresource>
+</RCC>
