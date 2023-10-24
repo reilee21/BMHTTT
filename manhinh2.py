@@ -330,7 +330,7 @@ class MyMainWindow(QMainWindow):
         self.UpdateViewModel()
 
 
-
+    ####   hàm kỹ thuật
     def KyThuatCCeasar(self):
         baomat = CCeasar("","","")
         x = self.doituongbaomat.key
