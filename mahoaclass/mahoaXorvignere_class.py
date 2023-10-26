@@ -1,4 +1,4 @@
-class CXORVignere:
+class CXORVigenere:
     def __init__(self, plaintext="",key="",ciphertext=""):
         self.plaintext=plaintext
         self.key=key
@@ -12,7 +12,7 @@ class CXORVignere:
             if c=='\n':
                 s+=c
             elif c!=' ':
-                so = ord(c) - 33;
+                so = ord(c) - 33
                 so_key=ord(self.key[vt_key])-33+1 #????
                 so = (so^so_key)# % 65500
                 s+= chr(so+ 33)
@@ -39,10 +39,10 @@ class CXORVignere:
 def main():
     p =  "Quê hương\nLà chùm\nkhế ngọt"
     key="huflit"
-    cXORVignere= CXORVignere(p,key) 
+    cXORVignere= CXORVigenere(p,key) 
     c = cXORVignere.MaHoa()
     print("Sau khi ma hoa= ", c)
-    cXORVignere2= CXORVignere("",key,c)
+    cXORVignere2= CXORVigenere("",key,c)
     s= cXORVignere2.GiaiMa()
     print("Sau khi giai ma= ",s)
 #========================================

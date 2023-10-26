@@ -7,8 +7,8 @@ class CXORTrithemius:
             if c=='\n':
                 s+= c
             elif c!=' ':
-                so = ord(c) - 33;
-                so = (so^(i%65500))# % 65500
+                so = ord(c) - 33
+                so = (so^(i%65500))
                 s += chr(so+ 33)
             else:
                 s += ' '

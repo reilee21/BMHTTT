@@ -1,6 +1,6 @@
 #=============================================
 class CTrithemius:
-    def __init__(self, plaintext,ciphertext=""):
+    def __init__(self, plaintext="",ciphertext=""):
         self.plaintext=plaintext
         self.ciphertext=ciphertext
     #========================================
@@ -11,7 +11,7 @@ class CTrithemius:
             if c=='\n':
                 self.ciphertext += c
             elif c!=' ':
-                so = ord(c) - 33;
+                so = ord(c) - 33
                 so = (so+(i%65500)) % 65500
                 self.ciphertext += chr(so+ 33)
             else:
