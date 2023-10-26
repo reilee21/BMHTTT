@@ -1,6 +1,6 @@
 #========================================
 class CBelasco:
-    def __init__(self,plaintext,key,ciphertext=""):
+    def __init__(self,plaintext="",key="",ciphertext=""):
         self.plaintext=plaintext
         self.key=key
         self.ciphertext=ciphertext
@@ -11,8 +11,8 @@ class CBelasco:
             if c=='\n':
                 self.ciphertext=self.ciphertext+c
             elif c!=' ':
-                row = ord(self.key[i%len(self.key)]) - 33;
-                col = ord(c) - 33;
+                row = ord(self.key[i%len(self.key)]) - 33
+                col = ord(c) - 33
                 so = (row + col) % 65500
                 self.ciphertext += chr(so+ 33)
             else:
@@ -26,8 +26,8 @@ class CBelasco:
             if c=='\n':
                 self.plaintext = self.plaintext+c
             elif c != ' ':
-                row = ord(self.key[i%len(self.key)]) - 33;
-                col = ord(c) - 33;
+                row = ord(self.key[i%len(self.key)]) - 33
+                col = ord(c) - 33
                 so = (col - row + 65500) % 65500
                 self.plaintext += chr(so+33)
             else:

@@ -11,7 +11,7 @@ class CCeasar:
             if c == '\n':
                 self.ciphertext+=c
             elif c!=' ':
-                so = ord(c) - 33;
+                so = ord(c) - 33
                 so = (so+self.key) % 65500
                 self.ciphertext += chr(so+ 33)
             else:

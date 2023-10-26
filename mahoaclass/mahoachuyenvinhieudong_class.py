@@ -12,7 +12,7 @@ class CChuyenViNhieuDong:
         for i in range(len(self.key)):
             if self.key[i]==x:
                 return i
-        return -1;
+        return -1
     #========================================
     def MaHoa(self):
         soCot = len(self.key)
