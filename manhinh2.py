@@ -16,8 +16,6 @@ import mahoaclass.mahoaRSA
 from mahoaclass.mahoaAES_class import CAES
 import mahoaclass.mahoaS_DES
 from mahoaclass.mahoaDES_class import CDES
-from cryptography.fernet import Fernet
-
 
 class MyMainWindow(QMainWindow):
     def __init__(self):
@@ -64,8 +62,8 @@ class MyMainWindow(QMainWindow):
             10: "Mã hoá XOR - Trithemius",
             11: "Mã hoá Hiện đại - RSA",
             12: "Mã hoá Hiện đại - S-DES",
-            13: "Mã hoá Hiện dại - DES",
-            14: "Mã hoá Hiện dại - AES",
+            13: "Mã hoá Hiện đại - DES",
+            14: "Mã hoá Hiện đại - AES",
             15: "Giải mã thay thế - Ceasar",
             16: "Giải mã thay thế - Vigenere",
             17: "Giải mã thay thế - Belasco",
@@ -258,7 +256,7 @@ class MyMainWindow(QMainWindow):
         temp = 0
         if self.ui.toolBox.currentIndex() == 1:
             temp = 2
-        if self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28]:
+        if self.curtechnique not in [4, 5, 6, 10, 11, 14, 18, 19, 20, 24, 25]:
             self.ui.stackedWidget_2.setCurrentIndex(0 + temp)
         else:
             self.ui.stackedWidget_2.setCurrentIndex(1 + temp)
@@ -323,7 +321,7 @@ class MyMainWindow(QMainWindow):
                 file.write(self.doituongbaomat.sau)
             QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
         if (
-            self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28]
+            self.curtechnique not in [4, 5, 6, 10, 11, 18, 19, 20, 24, 25]
             and self.ui.toolBox.currentIndex() == 0
         ):
             temp = "Lưu File Key " + self.ui.label.text()
@@ -407,7 +405,7 @@ class MyMainWindow(QMainWindow):
             QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Nội dung!")
             self.set_focus_1()
             return
-        if self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28]:
+        if self.curtechnique not in [4, 5, 6, 10, 11, 14, 18, 19, 20, 24, 25]:
             if not self.doituongbaomat.key:
                 QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Key!")
                 self.set_focus_2()
@@ -559,39 +557,47 @@ class MyMainWindow(QMainWindow):
             self.doituongbaomat.sau = cXORTrithemius.MaHoa(cXORTrithemius.ciphertext)
 
     def KyThuatRSA(self):
-        e=65537; n=4255903; d=2480777
+        e = 65537
+        n = 4255903
+        d = 2480777
         if self.curtechnique == 11:
-            plaintext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = self.mahoaRSA.MaHoa(plaintext,e,n)
+            self.plaintext = self.doituongbaomat.truoc
+            self.ciphertext = mahoaclass.mahoaRSA.MaHoa(self.plaintext, e, n)
+            self.result = ""
+            for i in self.ciphertext:
+                self.result += str(i) + " "
+            self.doituongbaomat.sau = self.result
         else:
-            ciphertext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = self.mahoaRSA.GiaiMa(ciphertext,d,n)
+            self.ciphertext = [int(x) for x in self.doituongbaomat.truoc.split()]
+            self.doituongbaomat.sau = mahoaclass.mahoaRSA.GiaiMa(self.ciphertext, d, n)
+
     def KyThuatSDES(self):
         if self.curtechnique == 12:
             plaintext = self.doituongbaomat.truoc
             key = self.doituongbaomat.key
-            self.doituongbaomat.sau = self.mahoaS_DES.MaHoa(plaintext,key)
+            self.doituongbaomat.sau = self.mahoaS_DES.MaHoa(plaintext, key)
         else:
             ciphertext = self.doituongbaomat.truoc
             key = self.doituongbaomat.key
-            self.doituongbaomat.sau = self.mahoaS_DES.GiaiMa(ciphertext,key)
+            self.doituongbaomat.sau = self.mahoaS_DES.GiaiMa(ciphertext, key)
 
     def KyThuatDES(self):
         cDES = CDES()
         if self.curtechnique == 13:
             self.doituongbaomat.sau = cDES.encrypt(self.doituongbaomat.truoc)
         else:
-            self.doituongbaomat.sau = cDES.decrypt(self.doituongbaomat.truoc) 
+            self.doituongbaomat.sau = cDES.decrypt(self.doituongbaomat.truoc)
 
     def KyThuatAES(self):
         cAES = CAES()
-        cAES.key = Fernet.generate_key()
         if self.curtechnique == 14:
-            cAES.plaintext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = cAES.encrypt_text()
+            self.result, self.key = cAES.MaHoa(self.doituongbaomat.truoc)
+            self.doituongbaomat.key = str(self.key)
+            self.doituongbaomat.sau = self.result.decode("utf-8")
         else:
-            cAES.ciphertext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = cAES.decrypt_text()
+            self.doituongbaomat.sau = cAES.GiaiMa(self.doituongbaomat.truoc, bytes(self.doituongbaomat.key))
+            
+
 
 
 def main():
