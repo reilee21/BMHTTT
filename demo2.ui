@@ -158,7 +158,7 @@ background-color: rgb(255, 255, 255);
 </string>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <property name="tabSpacing">
              <number>8</number>
@@ -540,7 +540,7 @@ padding-left:10px</string>
           <string notr="true"/>
          </property>
          <property name="text">
-          <string>Trang chủ</string>
+          <string>Màn hình chính</string>
          </property>
          <property name="icon">
           <iconset resource="resource.qrc">
@@ -645,12 +645,12 @@ background-color: rgb(0, 65, 181);
 </string>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page">
              <layout class="QGridLayout" name="gridLayout_5">
               <item row="0" column="0">
-               <widget class="QPushButton" name="btn_TT_CCeasar">
+               <widget class="QPushButton" name="btn_TT_Ceasar">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -669,12 +669,12 @@ background-color: rgb(0, 65, 181);
                  </font>
                 </property>
                 <property name="text">
-                 <string>CCeasar</string>
+                 <string>Ceasar</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QPushButton" name="btn_TT_Vignere">
+               <widget class="QPushButton" name="btn_TT_Vigenere">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -693,7 +693,7 @@ background-color: rgb(0, 65, 181);
                  </font>
                 </property>
                 <property name="text">
-                 <string>Vignere</string>
+                 <string>Vigenere</string>
                 </property>
                </widget>
               </item>
@@ -802,7 +802,7 @@ background-color: rgb(0, 65, 181);
             <widget class="QWidget" name="page_3">
              <layout class="QGridLayout" name="gridLayout_7">
               <item row="0" column="0">
-               <widget class="QPushButton" name="btn_XOR_CCeasar">
+               <widget class="QPushButton" name="btn_XOR_Ceasar">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -821,12 +821,12 @@ background-color: rgb(0, 65, 181);
                  </font>
                 </property>
                 <property name="text">
-                 <string>CCeasar</string>
+                 <string>Ceasar</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QPushButton" name="btn_XOR_Vignere">
+               <widget class="QPushButton" name="btn_XOR_Vigenere">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -845,7 +845,7 @@ background-color: rgb(0, 65, 181);
                  </font>
                 </property>
                 <property name="text">
-                 <string>Vignere</string>
+                 <string>Vigenere</string>
                 </property>
                </widget>
               </item>
@@ -901,11 +901,11 @@ background-color: rgb(0, 65, 181);
             </widget>
             <widget class="QWidget" name="page_4">
              <layout class="QGridLayout" name="gridLayout_8">
-              <item row="0" column="0">
-               <widget class="QPushButton" name="btn_MH_HD_AES">
+              <item row="0" column="6">
+               <widget class="QPushButton" name="btn_MH_HD_MD5">
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>100</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -921,31 +921,7 @@ background-color: rgb(0, 65, 181);
                  </font>
                 </property>
                 <property name="text">
-                 <string>AES</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="btn_MH_HD_RSAR">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>200</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>RSAR</string>
+                 <string>MD5</string>
                 </property>
                </widget>
               </item>
@@ -953,7 +929,7 @@ background-color: rgb(0, 65, 181);
                <widget class="QPushButton" name="btn_MH_HD_SDES">
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>100</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -973,11 +949,83 @@ background-color: rgb(0, 65, 181);
                 </property>
                </widget>
               </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="btn_MH_HD_RSAR">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>RSAR</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="btn_MH_HD_AES">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>AES</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QPushButton" name="btn_MH_HD_HSA6">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>HSA6</string>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="3">
                <widget class="QPushButton" name="btn_MH_HD_DES">
                 <property name="minimumSize">
                  <size>
-                  <width>150</width>
+                  <width>100</width>
                   <height>40</height>
                  </size>
                 </property>
@@ -1043,7 +1091,7 @@ background-color: rgb(0, 65, 181);
 }</string>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="MaHoaCoKey">
              <layout class="QGridLayout" name="gridLayout_9">
@@ -1120,6 +1168,13 @@ background-color: rgb(0, 65, 181);
                    </property>
                    <property name="text">
                     <string>Import</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="resource.qrc">
+                     <normaloff>:/icon/icon/icons8-import-file-64.png</normaloff>:/icon/icon/icons8-import-file-64.png</iconset>
+                   </property>
+                   <property name="flat">
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </widget>
@@ -1300,6 +1355,10 @@ background-color: rgb(0, 65, 181);
                    <property name="text">
                     <string>Save</string>
                    </property>
+                   <property name="icon">
+                    <iconset resource="resource.qrc">
+                     <normaloff>:/icon/icon/icons8-save-50.png</normaloff>:/icon/icon/icons8-save-50.png</iconset>
+                   </property>
                   </widget>
                  </widget>
                 </item>
@@ -1399,6 +1458,10 @@ background-color: rgb(0, 65, 181);
                      </property>
                      <property name="text">
                       <string>Import</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/icon/icon/icons8-import-file-64.png</normaloff>:/icon/icon/icons8-import-file-64.png</iconset>
                      </property>
                     </widget>
                    </widget>
@@ -1531,6 +1594,10 @@ background-color: rgb(0, 65, 181);
                      <property name="text">
                       <string>Save</string>
                      </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/icon/icon/icons8-save-50.png</normaloff>:/icon/icon/icons8-save-50.png</iconset>
+                     </property>
                     </widget>
                    </widget>
                   </item>
@@ -1631,6 +1698,10 @@ background-color: rgb(0, 65, 181);
                    <property name="text">
                     <string>Import</string>
                    </property>
+                   <property name="icon">
+                    <iconset resource="resource.qrc">
+                     <normaloff>:/icon/icon/icons8-import-file-64.png</normaloff>:/icon/icon/icons8-import-file-64.png</iconset>
+                   </property>
                   </widget>
                  </widget>
                 </item>
@@ -1706,6 +1777,10 @@ background-color: rgb(0, 65, 181);
                   </property>
                   <property name="text">
                    <string>Import Key</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="resource.qrc">
+                    <normaloff>:/icon/icon/icons8-key-64.png</normaloff>:/icon/icon/icons8-key-64.png</iconset>
                   </property>
                  </widget>
                 </item>
@@ -1836,6 +1911,10 @@ background-color: rgb(0, 65, 181);
                    <property name="text">
                     <string>Save</string>
                    </property>
+                   <property name="icon">
+                    <iconset resource="resource.qrc">
+                     <normaloff>:/icon/icon/icons8-save-50.png</normaloff>:/icon/icon/icons8-save-50.png</iconset>
+                   </property>
                   </widget>
                  </widget>
                 </item>
@@ -1935,6 +2014,10 @@ background-color: rgb(0, 65, 181);
                      </property>
                      <property name="text">
                       <string>Import</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/icon/icon/icons8-import-file-64.png</normaloff>:/icon/icon/icons8-import-file-64.png</iconset>
                      </property>
                     </widget>
                    </widget>
@@ -2066,6 +2149,10 @@ background-color: rgb(0, 65, 181);
                      </property>
                      <property name="text">
                       <string>Save</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resource.qrc">
+                       <normaloff>:/icon/icon/icons8-save-50.png</normaloff>:/icon/icon/icons8-save-50.png</iconset>
                      </property>
                     </widget>
                    </widget>

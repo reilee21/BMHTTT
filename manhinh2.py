@@ -37,28 +37,28 @@ class MyMainWindow(QMainWindow):
                                 204: "Giải mã hiện đại",
                                 }
        
-        self.action_mapping = { 1: "Mã hoá thay thế - CCeasar",
-                                2: "Mã hoá thay thế - Vignere",
+        self.action_mapping = { 1: "Mã hoá thay thế - Ceasar",
+                                2: "Mã hoá thay thế - Vigenere",
                                 3: "Mã hoá thay thế - Belasso",
                                 4: "Mã hoá thay thế - Trithemius",
                                 5: "Mã hoá chuyển vị - Hai dòng",
                                 6: "Mã hoá chuyển vị - Nhiều dòng",
-                                7: "Mã hoá XOR - CCeasar",
-                                8: "Mã hoá XOR - Vignere",
+                                7: "Mã hoá XOR - Ceasar",
+                                8: "Mã hoá XOR - Vigenere",
                                 9: "Mã hoá XOR - Belasso",
                                 10: "Mã hoá XOR - Trithemius",
                                 11: "Mã hoá Hiện đại - RSAR",
                                 12: "Mã hoá Hiện đại - S-DES",
                                 13: "Mã hoá Hiện dại - DES",
                                 14: "Mã hoá Hiện dại - AES",
-                                15: "Giải mã thay thế - CCeasar",
-                                16: "Giải mã thay thế - Vignere",
+                                15: "Giải mã thay thế - Ceasar",
+                                16: "Giải mã thay thế - Vigenere",
                                 17: "Giải mã thay thế - Belasso",
                                 18: "Giải mã thay thế - Trithemius",
                                 19: "Giải mã chuyển vị - Hai dòng",
                                 20: "Giải mã chuyển vị - Nhiều dòng",
-                                21: "Giải mã XOR - CCeasar",
-                                22: "Giải mã XOR - Vignere",
+                                21: "Giải mã XOR - Ceasar",
+                                22: "Giải mã XOR - Vigenere",
                                 23: "Giải mã XOR - Belasso",
                                 24: "Giải mã XOR - Trithemius",
                                 25: "Giải mã Hiện đại - RSAR",
@@ -101,15 +101,15 @@ class MyMainWindow(QMainWindow):
         self.ui.btnGM_XOR.pressed.connect(lambda: self.setActiveMenuButton(self.ui.btnGM_XOR))
         self.ui.btnGM_HienDai.pressed.connect(lambda: self.setActiveMenuButton(self.ui.btnGM_HienDai))
         #### Action
-        self.ui.btn_TT_CCeasar.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_TT_CCeasar))
-        self.ui.btn_TT_Vignere.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Vignere))
+        self.ui.btn_TT_Ceasar.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Ceasar))
+        self.ui.btn_TT_Vigenere.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Vigenere))
         self.ui.btn_TT_Belassco.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Belassco))
         self.ui.btn_TT_Trithemius.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Trithemius))
 
         self.ui.btn_CV_2D.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_CV_2D))
         self.ui.btn_CV_ND.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_CV_ND))
-        self.ui.btn_XOR_CCeasar.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_CCeasar))
-        self.ui.btn_XOR_Vignere.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Vignere))
+        self.ui.btn_XOR_Ceasar.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Ceasar))
+        self.ui.btn_XOR_Vigenere.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Vigenere))
         self.ui.btn_XOR_Belassco.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Belassco))
         self.ui.btn_XOR_Trithemius.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Trithemius))
         self.ui.btn_MH_HD_RSAR.pressed.connect(lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_RSAR))
@@ -133,14 +133,14 @@ class MyMainWindow(QMainWindow):
 
 
         ### Chọn kỹ thuật 
-        self.ui.btn_TT_CCeasar.clicked.connect(lambda: self.action(1))
-        self.ui.btn_TT_Vignere.clicked.connect(lambda: self.action(2))
+        self.ui.btn_TT_Ceasar.clicked.connect(lambda: self.action(1))
+        self.ui.btn_TT_Vigenere.clicked.connect(lambda: self.action(2))
         self.ui.btn_TT_Belassco.clicked.connect(lambda: self.action(3))
         self.ui.btn_TT_Trithemius.clicked.connect(lambda: self.action(4))
         self.ui.btn_CV_2D.clicked.connect(lambda: self.action(5))
         self.ui.btn_CV_ND.clicked.connect(lambda: self.action(6))
-        self.ui.btn_XOR_CCeasar.clicked.connect(lambda: self.action(7))
-        self.ui.btn_XOR_Vignere.clicked.connect(lambda: self.action(8))
+        self.ui.btn_XOR_Ceasar.clicked.connect(lambda: self.action(7))
+        self.ui.btn_XOR_Vigenere.clicked.connect(lambda: self.action(8))
         self.ui.btn_XOR_Belassco.clicked.connect(lambda: self.action(9))
         self.ui.btn_XOR_Trithemius.clicked.connect(lambda: self.action(10))
         self.ui.btn_MH_HD_RSAR.clicked.connect(lambda: self.action(11))
@@ -325,13 +325,13 @@ class MyMainWindow(QMainWindow):
                 return
         
         if self.curtechnique == 1 or self.curtechnique == 15:
-            self.KyThuatCCeasar()       
+            self.KyThuatCeasar()       
         ##### code tiếp tục cho các kỹ thuật còn lại ---> tạo hàm riêng cho mỗi kỹ thuật
         self.UpdateViewModel()
 
 
     ####   hàm kỹ thuật
-    def KyThuatCCeasar(self):
+    def KyThuatCeasar(self):
         baomat = CCeasar("","","")
         x = self.doituongbaomat.key
         if not x.isdigit():
