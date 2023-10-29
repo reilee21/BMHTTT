@@ -59,7 +59,7 @@ class MyMainWindow(QMainWindow):
             5: "Mã hoá chuyển vị - Hai dòng",
             6: "Mã hoá chuyển vị - Nhiều dòng",
             7: "Mã hoá XOR - Ceasar",
-            8: "Mã hoá XOR - Vignere",
+            8: "Mã hoá XOR - Vigenere",
             9: "Mã hoá XOR - Belasco",
             10: "Mã hoá XOR - Trithemius",
             11: "Mã hoá Hiện đại - RSA",
@@ -72,7 +72,7 @@ class MyMainWindow(QMainWindow):
             18: "Giải mã thay thế - Trithemius",
             19: "Giải mã chuyển vị - Hai dòng",
             20: "Giải mã chuyển vị - Nhiều dòng",
-            21: "Giải mã XOR - CCeasar",
+            21: "Giải mã XOR - Ceasar",
             22: "Giải mã XOR - Vigenere",
             23: "Giải mã XOR - Belasco",
             24: "Giải mã XOR - Trithemius",
@@ -127,11 +127,11 @@ class MyMainWindow(QMainWindow):
             lambda: self.setActiveMenuButton(self.ui.btnGM_HienDai)
         )
         #### Action
-        self.ui.btn_TT_CCeasar.pressed.connect(
-            lambda: self.setActiveTechniqueButton(self.ui.btn_TT_CCeasar)
+        self.ui.btn_TT_Ceasar.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Ceasar)
         )
-        self.ui.btn_TT_Vignere.pressed.connect(
-            lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Vignere)
+        self.ui.btn_TT_Vigenere.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Vigenere)
         )
         self.ui.btn_TT_Belassco.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Belassco)
@@ -146,11 +146,11 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_CV_ND.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_CV_ND)
         )
-        self.ui.btn_XOR_CCeasar.pressed.connect(
-            lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_CCeasar)
+        self.ui.btn_XOR_Ceasar.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Ceasar)
         )
-        self.ui.btn_XOR_Vignere.pressed.connect(
-            lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Vignere)
+        self.ui.btn_XOR_Vigenere.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Vigenere)
         )
         self.ui.btn_XOR_Belassco.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Belassco)
@@ -253,7 +253,6 @@ class MyMainWindow(QMainWindow):
         self.curtechnique = technique
         self.setText_ActionOnclick()
         self.doituongbaomat = DoiTuongBaoMat("", "", "")
-        self.UpdateViewModel()
         ### Setup page
         temp = 0
         if self.ui.toolBox.currentIndex() == 1:
@@ -262,6 +261,9 @@ class MyMainWindow(QMainWindow):
             self.ui.stackedWidget_2.setCurrentIndex(0 + temp)
         else:
             self.ui.stackedWidget_2.setCurrentIndex(1 + temp)
+
+        self.UpdateViewModel()
+
 
     def MoFile(self):
         file_dialog = QFileDialog()
@@ -313,6 +315,7 @@ class MyMainWindow(QMainWindow):
 
     def GhiFile(self):
         temp = "Lưu File " + self.ui.label.text()
+        flag = False
         file_name, _ = QFileDialog.getSaveFileName(
             self, temp, "", "Text Files (*.txt);;All Files (*)"
         )
@@ -322,19 +325,18 @@ class MyMainWindow(QMainWindow):
             with open(file_name, "w", encoding="utf-8") as file:
                 file.write(self.doituongbaomat.sau)
             QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
-        if (
-            self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28]
-            and self.ui.toolBox.currentIndex() == 0
-        ):
+            flag = True
+
+        if (self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28] and self.ui.toolBox.currentIndex() == 0):
             temp = "Lưu File Key " + self.ui.label.text()
-            file_name, _ = QFileDialog.getSaveFileName(
-                self, temp, "", "Text Files (*.txt);;All Files (*)"
-            )
+            file_name, _ = QFileDialog.getSaveFileName(self, temp, "", "Text Files (*.txt);;All Files (*)")
             if file_name:
                 with open(file_name, "w", encoding="utf-8") as file:
                     file.write(self.doituongbaomat.key)
                 QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
-        self.clearAll()
+        if(flag):
+            self.doituongbaomat = DoiTuongBaoMat("", "", "")
+            self.UpdateViewModel()
 
     def UpdateTxtToObjectFromView(self):
         page = self.ui.stackedWidget_2.currentIndex()
@@ -384,22 +386,6 @@ class MyMainWindow(QMainWindow):
         elif page == 2:
             self.ui.txt_Key_GM_K.setFocus()
 
-    def clearAll(self):
-        page = self.ui.stackedWidget_2.currentIndex()
-        if page == 0:
-            self.ui.txt_PlainText_MH_K.setText("")
-            self.ui.txt_Cyphertext_MH_K.setText("")
-            self.ui.txt_Key_MH_K.setText("")
-        elif page == 1:
-            self.ui.txt_PlainText_MH_0K.setText("")
-            self.ui.txt_Cyphertext_MH_0K.setText("")
-        elif page == 2:
-            self.ui.txt_PlainText_GM_K.setText("")
-            self.ui.txt_Cyphertext_GM_K.setText("")
-            self.ui.txt_Key_GM_K.setText("")
-        elif page == 3:
-            self.ui.txt_PlainText_GM_0K.setText("")
-            self.ui.txt_Cyphertext_GM_0K.setText("")
 
     def ThucHienMH_GM(self):
         self.UpdateTxtToObjectFromView()
@@ -446,10 +432,11 @@ class MyMainWindow(QMainWindow):
         # Các hàm kỹ thuật
 
     def KyThuatCeasar(self):
-        baomat = CCeasar()
+        baomat = CCeasar('','','')
         x = self.doituongbaomat.key
         if not x.isdigit():
             QMessageBox.information(self, "Thông báo", "Key phải là số nguyên!!!")
+            self.set_focus_2()
             return
         baomat.key = int(x)
         if self.curtechnique == 1:  ## mã hoá
@@ -562,7 +549,7 @@ class MyMainWindow(QMainWindow):
         e=65537; n=4255903; d=2480777
         if self.curtechnique == 11:
             plaintext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = self.mahoaRSA.MaHoa(plaintext,e,n)
+            self.doituongbaomat.sau = mahoaclass.mahoaRSA.MaHoa(plaintext,e,n)
         else:
             ciphertext = self.doituongbaomat.truoc
             self.doituongbaomat.sau = self.mahoaRSA.GiaiMa(ciphertext,d,n)
@@ -570,11 +557,11 @@ class MyMainWindow(QMainWindow):
         if self.curtechnique == 12:
             plaintext = self.doituongbaomat.truoc
             key = self.doituongbaomat.key
-            self.doituongbaomat.sau = self.mahoaS_DES.MaHoa(plaintext,key)
+            self.doituongbaomat.sau = mahoaclass.mahoaS_DES.MaHoa(plaintext,key)
         else:
             ciphertext = self.doituongbaomat.truoc
             key = self.doituongbaomat.key
-            self.doituongbaomat.sau = self.mahoaS_DES.GiaiMa(ciphertext,key)
+            self.doituongbaomat.sau = mahoaclass.mahoaS_DES.GiaiMa(ciphertext,key)
 
     def KyThuatDES(self):
         cDES = CDES()
