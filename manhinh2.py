@@ -64,23 +64,28 @@ class MyMainWindow(QMainWindow):
             10: "Mã hoá XOR - Trithemius",
             11: "Mã hoá Hiện đại - RSA",
             12: "Mã hoá Hiện đại - S-DES",
-            13: "Mã hoá Hiện dại - DES",
-            14: "Mã hoá Hiện dại - AES",
-            15: "Giải mã thay thế - Ceasar",
-            16: "Giải mã thay thế - Vigenere",
-            17: "Giải mã thay thế - Belasco",
-            18: "Giải mã thay thế - Trithemius",
-            19: "Giải mã chuyển vị - Hai dòng",
-            20: "Giải mã chuyển vị - Nhiều dòng",
-            21: "Giải mã XOR - Ceasar",
-            22: "Giải mã XOR - Vigenere",
-            23: "Giải mã XOR - Belasco",
-            24: "Giải mã XOR - Trithemius",
-            25: "Giải mã Hiện đại - RSA",
-            26: "Giải mã Hiện đại - S-DES",
-            27: "Giải mã Hiện đại - DES",
-            28: "Giải mã Hiện đại - AES",
+            13: "Mã hoá Hiện đại - DES",
+            14: "Mã hoá Hiện đại - AES",
+            15: "Mã hoá Hiện đại - HSA6",
+            16: "Mã hoá Hiện đại - MD5",
+            17: "Giải mã thay thế - Ceasar",
+            18: "Giải mã thay thế - Vigenere",
+            19: "Giải mã thay thế - Belasco",
+            20: "Giải mã thay thế - Trithemius",
+            21: "Giải mã chuyển vị - Hai dòng",
+            22: "Giải mã chuyển vị - Nhiều dòng",
+            23: "Giải mã XOR - Ceasar",
+            24: "Giải mã XOR - Vigenere",
+            25: "Giải mã XOR - Belasco",
+            26: "Giải mã XOR - Trithemius",
+            27: "Giải mã Hiện đại - RSA",
+            28: "Giải mã Hiện đại - S-DES",
+            29: "Giải mã Hiện đại - DES",
+            30: "Giải mã Hiện đại - AES",
+            31: "Giải mã Hiện đại - HSA6",
+            32: "Giải mã Hiện đại - MD5",
         }
+
 
     def setup(self):
         self.ui.toolBox.setCurrentIndex(0)
@@ -158,8 +163,8 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_XOR_Trithemius.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Trithemius)
         )
-        self.ui.btn_MH_HD_RSAR.pressed.connect(
-            lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_RSAR)
+        self.ui.btn_MH_HD_RSA.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_RSA)
         )
         self.ui.btn_MH_HD_SDES.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_SDES)
@@ -195,7 +200,7 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_XOR_Vigenere.clicked.connect(lambda: self.action(8))
         self.ui.btn_XOR_Belassco.clicked.connect(lambda: self.action(9))
         self.ui.btn_XOR_Trithemius.clicked.connect(lambda: self.action(10))
-        self.ui.btn_MH_HD_RSAR.clicked.connect(lambda: self.action(11))
+        self.ui.btn_MH_HD_RSA.clicked.connect(lambda: self.action(11))
         self.ui.btn_MH_HD_SDES.clicked.connect(lambda: self.action(12))
         self.ui.btn_MH_HD_DES.clicked.connect(lambda: self.action(13))
         self.ui.btn_MH_HD_AES.clicked.connect(lambda: self.action(14))
@@ -245,7 +250,7 @@ class MyMainWindow(QMainWindow):
 
     def setText_ActionOnclick(self):
         if self.ui.toolBox.currentIndex() == 1:
-            self.curtechnique += 14
+            self.curtechnique += 16
         action_name = self.action_mapping[self.curtechnique]
         self.ui.label.setText(action_name)
 
@@ -257,7 +262,7 @@ class MyMainWindow(QMainWindow):
         temp = 0
         if self.ui.toolBox.currentIndex() == 1:
             temp = 2
-        if self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28]:
+        if self.curtechnique not in [4, 5, 6, 10, 14, 20, 21, 22, 26, 30]:
             self.ui.stackedWidget_2.setCurrentIndex(0 + temp)
         else:
             self.ui.stackedWidget_2.setCurrentIndex(1 + temp)
@@ -327,7 +332,7 @@ class MyMainWindow(QMainWindow):
             QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
             flag = True
 
-        if (self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28] and self.ui.toolBox.currentIndex() == 0):
+        if (self.curtechnique not in [4, 5, 6, 10, 14, 20, 21, 22, 26, 30] and self.ui.toolBox.currentIndex() == 0):
             temp = "Lưu File Key " + self.ui.label.text()
             file_name, _ = QFileDialog.getSaveFileName(self, temp, "", "Text Files (*.txt);;All Files (*)")
             if file_name:
@@ -575,7 +580,7 @@ class MyMainWindow(QMainWindow):
         cAES.key = Fernet.generate_key()
         if self.curtechnique == 14:
             cAES.plaintext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = cAES.encrypt_text()
+            self.doituongbaomat.sau = str(cAES.encrypt_text())
         else:
             cAES.ciphertext = self.doituongbaomat.truoc
             self.doituongbaomat.sau = cAES.decrypt_text()
