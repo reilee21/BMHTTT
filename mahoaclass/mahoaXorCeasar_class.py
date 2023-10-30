@@ -6,7 +6,7 @@ class CXORCeasar:
             if c == '\n':
                 ci+=c
             elif c!=' ':
-                so = ord(c) - 33;
+                so = ord(c) - 33
                 so = so ^ key
                 ci += chr(so+ 33)
             else:
@@ -15,7 +15,7 @@ class CXORCeasar:
 #========================================
 def main():
     p =  input("Moi nhap chuoi can ma hoa: ")
-    key=3
+    key=123
     cXORCeasar = CXORCeasar()
     c= cXORCeasar.MaHoa(p, key)
     print("Sau khi ma hoa= ", c)

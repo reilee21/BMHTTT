@@ -1,6 +1,6 @@
 from cryptography.fernet import Fernet
 class CAES:
-    def __init__(self, plaintext, key , ciphertext):
+    def __init__(self, plaintext="", key="", ciphertext=""):
         self.plaintext = plaintext
         self.key = key
         self.ciphertext = ciphertext
