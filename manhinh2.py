@@ -398,39 +398,39 @@ class MyMainWindow(QMainWindow):
             QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Nội dung!")
             self.set_focus_1()
             return
-        if self.curtechnique not in [4, 5, 6, 10, 14, 18, 19, 20, 24, 28]:
+        if self.curtechnique not in [4, 5, 6, 10, 14, 20, 21, 22, 26, 30]:
             if not self.doituongbaomat.key:
                 QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Key!")
                 self.set_focus_2()
                 return
 
-        if self.curtechnique == 1 or self.curtechnique == 15:
+        if self.curtechnique == 1 or self.curtechnique == 17:
             self.KyThuatCeasar()
-        if self.curtechnique == 2 or self.curtechnique == 16:
+        if self.curtechnique == 2 or self.curtechnique == 18:
             self.KyThuatVigenere()
-        if self.curtechnique == 3 or self.curtechnique == 17:
+        if self.curtechnique == 3 or self.curtechnique == 19:
             self.KyThuatBelasco()
-        if self.curtechnique == 4 or self.curtechnique == 18:
+        if self.curtechnique == 4 or self.curtechnique == 20:
             self.KyThuatTrithemius()
-        if self.curtechnique == 5 or self.curtechnique == 19:
+        if self.curtechnique == 5 or self.curtechnique == 21:
             self.KyThuatHaiDong()
-        if self.curtechnique == 6 or self.curtechnique == 20:
+        if self.curtechnique == 6 or self.curtechnique == 22:
             self.KyThuatNhieuDong()
-        if self.curtechnique == 7 or self.curtechnique == 21:
+        if self.curtechnique == 7 or self.curtechnique == 23:
             self.KyThuatCeasar_Xor()
-        if self.curtechnique == 8 or self.curtechnique == 22:
+        if self.curtechnique == 8 or self.curtechnique == 24:
             self.KyThuatVigenere_Xor()
-        if self.curtechnique == 9 or self.curtechnique == 23:
+        if self.curtechnique == 9 or self.curtechnique == 25:
             self.KyThuatBelasco_Xor()
-        if self.curtechnique == 10 or self.curtechnique == 24:
+        if self.curtechnique == 10 or self.curtechnique == 26:
             self.KyThuatTrithemius_Xor()
-        if self.curtechnique == 11 or self.curtechnique == 25:
+        if self.curtechnique == 11 or self.curtechnique == 27:
             self.KyThuatRSA()
-        if self.curtechnique == 12 or self.curtechnique == 26:
+        if self.curtechnique == 12 or self.curtechnique == 28:
             self.KyThuatSDES()
-        if self.curtechnique == 13 or self.curtechnique == 27:
+        if self.curtechnique == 13 or self.curtechnique == 29:
             self.KyThuatDES()
-        if self.curtechnique == 14 or self.curtechnique == 28:
+        if self.curtechnique == 14 or self.curtechnique == 30:
             self.KyThuatAES()
         self.UpdateViewModel()
 
