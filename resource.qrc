@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon/bg.jpg</file>
     <file>icon/icons8-key-64.png</file>
     <file>icon/icons8-save-50.png</file>
     <file>icon/home-button.png</file>
