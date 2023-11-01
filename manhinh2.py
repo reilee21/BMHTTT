@@ -17,8 +17,8 @@ from mahoaclass.mahoaAES_class import CAES
 import mahoaclass.mahoaS_DES
 from mahoaclass.mahoaDES_class import CDES
 from cryptography.fernet import Fernet
-
-
+from PyQt6.QtCore import QObject, pyqtSignal
+from manhinhchinh import ManHinhChinh
 class MyMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -66,26 +66,28 @@ class MyMainWindow(QMainWindow):
             12: "Mã hoá Hiện đại - S-DES",
             13: "Mã hoá Hiện đại - DES",
             14: "Mã hoá Hiện đại - AES",
-            15: "Mã hoá Hiện đại - HSA6",
+            15: "Mã hoá Hiện đại - HSA256",
             16: "Mã hoá Hiện đại - MD5",
-            17: "Giải mã thay thế - Ceasar",
-            18: "Giải mã thay thế - Vigenere",
-            19: "Giải mã thay thế - Belasco",
-            20: "Giải mã thay thế - Trithemius",
-            21: "Giải mã chuyển vị - Hai dòng",
-            22: "Giải mã chuyển vị - Nhiều dòng",
-            23: "Giải mã XOR - Ceasar",
-            24: "Giải mã XOR - Vigenere",
-            25: "Giải mã XOR - Belasco",
-            26: "Giải mã XOR - Trithemius",
-            27: "Giải mã Hiện đại - RSA",
-            28: "Giải mã Hiện đại - S-DES",
-            29: "Giải mã Hiện đại - DES",
-            30: "Giải mã Hiện đại - AES",
-            31: "Giải mã Hiện đại - HSA6",
-            32: "Giải mã Hiện đại - MD5",
-        }
-
+            17: "Mã hoá Hiện đại - HSA3",
+            18: "Giải mã thay thế - Ceasar",
+            19: "Giải mã thay thế - Vigenere",
+            20: "Giải mã thay thế - Belasco",
+            21: "Giải mã thay thế - Trithemius",
+            22: "Giải mã chuyển vị - Hai dòng",
+            23: "Giải mã chuyển vị - Nhiều dòng",
+            24: "Giải mã XOR - Ceasar",
+            25: "Giải mã XOR - Vigenere",
+            26: "Giải mã XOR - Belasco",
+            27: "Giải mã XOR - Trithemius",
+            28: "Giải mã Hiện đại - RSA",
+            29: "Giải mã Hiện đại - S-DES",
+            30: "Giải mã Hiện đại - DES",
+            31: "Giải mã Hiện đại - AES",
+            32: "Giải mã Hiện đại - HSA256",
+            33: "Giải mã Hiện đại - MD5",
+            34: "Giải mã Hiện đại - HSA3",
+    }
+   
 
     def setup(self):
         self.ui.toolBox.setCurrentIndex(0)
@@ -94,6 +96,7 @@ class MyMainWindow(QMainWindow):
         self.ui.stackedWidget_2.setCurrentIndex(4)
         self.setupMenuEvent()
         self.setupActionEvent()
+
 
     def setupMenuEvent(self):
         self.ui.btnMH_ThayThe.clicked.connect(lambda: self.openMenu(101))
@@ -105,7 +108,6 @@ class MyMainWindow(QMainWindow):
         self.ui.btnGM_ChuyenVi.clicked.connect(lambda: self.openMenu(202))
         self.ui.btnGM_XOR.clicked.connect(lambda: self.openMenu(203))
         self.ui.btnGM_HienDai.clicked.connect(lambda: self.openMenu(204))
-
         #####   Menu
         self.ui.btnMH_ThayThe.pressed.connect(
             lambda: self.setActiveMenuButton(self.ui.btnMH_ThayThe)
@@ -250,7 +252,7 @@ class MyMainWindow(QMainWindow):
 
     def setText_ActionOnclick(self):
         if self.ui.toolBox.currentIndex() == 1:
-            self.curtechnique += 16
+            self.curtechnique += 17
         action_name = self.action_mapping[self.curtechnique]
         self.ui.label.setText(action_name)
 
@@ -262,7 +264,7 @@ class MyMainWindow(QMainWindow):
         temp = 0
         if self.ui.toolBox.currentIndex() == 1:
             temp = 2
-        if self.curtechnique not in [4, 5, 6, 10, 14, 20, 21, 22, 26, 30]:
+        if self.curtechnique not in [4, 5, 6, 10, 14, 21, 22, 23, 27, 31]:
             self.ui.stackedWidget_2.setCurrentIndex(0 + temp)
         else:
             self.ui.stackedWidget_2.setCurrentIndex(1 + temp)
@@ -332,7 +334,7 @@ class MyMainWindow(QMainWindow):
             QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
             flag = True
 
-        if (self.curtechnique not in [4, 5, 6, 10, 14, 20, 21, 22, 26, 30] and self.ui.toolBox.currentIndex() == 0):
+        if (self.curtechnique not in [4, 5, 6, 10, 14, 21, 22, 23, 27, 31] and self.ui.toolBox.currentIndex() == 0):
             temp = "Lưu File Key " + self.ui.label.text()
             file_name, _ = QFileDialog.getSaveFileName(self, temp, "", "Text Files (*.txt);;All Files (*)")
             if file_name:
@@ -398,39 +400,39 @@ class MyMainWindow(QMainWindow):
             QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Nội dung!")
             self.set_focus_1()
             return
-        if self.curtechnique not in [4, 5, 6, 10, 14, 20, 21, 22, 26, 30]:
+        if self.curtechnique not in [4, 5, 6, 10, 14, 21, 22, 23, 27, 31]:
             if not self.doituongbaomat.key:
                 QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Key!")
                 self.set_focus_2()
                 return
 
-        if self.curtechnique == 1 or self.curtechnique == 17:
+        if self.curtechnique == 1 or self.curtechnique == 18:
             self.KyThuatCeasar()
-        if self.curtechnique == 2 or self.curtechnique == 18:
+        if self.curtechnique == 2 or self.curtechnique == 19:
             self.KyThuatVigenere()
-        if self.curtechnique == 3 or self.curtechnique == 19:
+        if self.curtechnique == 3 or self.curtechnique == 20:
             self.KyThuatBelasco()
-        if self.curtechnique == 4 or self.curtechnique == 20:
+        if self.curtechnique == 4 or self.curtechnique == 21:
             self.KyThuatTrithemius()
-        if self.curtechnique == 5 or self.curtechnique == 21:
+        if self.curtechnique == 5 or self.curtechnique == 22:
             self.KyThuatHaiDong()
-        if self.curtechnique == 6 or self.curtechnique == 22:
+        if self.curtechnique == 6 or self.curtechnique == 23:
             self.KyThuatNhieuDong()
-        if self.curtechnique == 7 or self.curtechnique == 23:
+        if self.curtechnique == 7 or self.curtechnique == 24:
             self.KyThuatCeasar_Xor()
-        if self.curtechnique == 8 or self.curtechnique == 24:
+        if self.curtechnique == 8 or self.curtechnique == 25:
             self.KyThuatVigenere_Xor()
-        if self.curtechnique == 9 or self.curtechnique == 25:
+        if self.curtechnique == 9 or self.curtechnique == 26:
             self.KyThuatBelasco_Xor()
-        if self.curtechnique == 10 or self.curtechnique == 26:
+        if self.curtechnique == 10 or self.curtechnique == 27:
             self.KyThuatTrithemius_Xor()
-        if self.curtechnique == 11 or self.curtechnique == 27:
+        if self.curtechnique == 11 or self.curtechnique == 28:
             self.KyThuatRSA()
-        if self.curtechnique == 12 or self.curtechnique == 28:
+        if self.curtechnique == 12 or self.curtechnique == 29:
             self.KyThuatSDES()
-        if self.curtechnique == 13 or self.curtechnique == 29:
+        if self.curtechnique == 13 or self.curtechnique == 30:
             self.KyThuatDES()
-        if self.curtechnique == 14 or self.curtechnique == 30:
+        if self.curtechnique == 14 or self.curtechnique == 31:
             self.KyThuatAES()
         self.UpdateViewModel()
 
