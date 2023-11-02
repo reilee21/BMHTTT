@@ -66,9 +66,9 @@ class MyMainWindow(QMainWindow):
             12: "Mã hoá Hiện đại - S-DES",
             13: "Mã hoá Hiện đại - DES",
             14: "Mã hoá Hiện đại - AES",
-            15: "Mã hoá Hiện đại - HSA256",
+            15: "Mã hoá Hiện đại - SHA256",
             16: "Mã hoá Hiện đại - MD5",
-            17: "Mã hoá Hiện đại - HSA3",
+            17: "Mã hoá Hiện đại - SHA3",
             18: "Giải mã thay thế - Ceasar",
             19: "Giải mã thay thế - Vigenere",
             20: "Giải mã thay thế - Belasco",
@@ -83,9 +83,9 @@ class MyMainWindow(QMainWindow):
             29: "Giải mã Hiện đại - S-DES",
             30: "Giải mã Hiện đại - DES",
             31: "Giải mã Hiện đại - AES",
-            32: "Giải mã Hiện đại - HSA256",
+            32: "Giải mã Hiện đại - SHA256",
             33: "Giải mã Hiện đại - MD5",
-            34: "Giải mã Hiện đại - HSA3",
+            34: "Giải mã Hiện đại - SHA3",
     }
    
 
