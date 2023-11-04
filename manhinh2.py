@@ -140,8 +140,8 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_TT_Vigenere.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Vigenere)
         )
-        self.ui.btn_TT_Belassco.pressed.connect(
-            lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Belassco)
+        self.ui.btn_TT_Belasco.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Belasco)
         )
         self.ui.btn_TT_Trithemius.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_TT_Trithemius)
@@ -159,8 +159,8 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_XOR_Vigenere.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Vigenere)
         )
-        self.ui.btn_XOR_Belassco.pressed.connect(
-            lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Belassco)
+        self.ui.btn_XOR_Belasco.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Belasco)
         )
         self.ui.btn_XOR_Trithemius.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_XOR_Trithemius)
@@ -194,13 +194,13 @@ class MyMainWindow(QMainWindow):
         ### Chọn kỹ thuật 
         self.ui.btn_TT_Ceasar.clicked.connect(lambda: self.action(1))
         self.ui.btn_TT_Vigenere.clicked.connect(lambda: self.action(2))
-        self.ui.btn_TT_Belassco.clicked.connect(lambda: self.action(3))
+        self.ui.btn_TT_Belasco.clicked.connect(lambda: self.action(3))
         self.ui.btn_TT_Trithemius.clicked.connect(lambda: self.action(4))
         self.ui.btn_CV_2D.clicked.connect(lambda: self.action(5))
         self.ui.btn_CV_ND.clicked.connect(lambda: self.action(6))
         self.ui.btn_XOR_Ceasar.clicked.connect(lambda: self.action(7))
         self.ui.btn_XOR_Vigenere.clicked.connect(lambda: self.action(8))
-        self.ui.btn_XOR_Belassco.clicked.connect(lambda: self.action(9))
+        self.ui.btn_XOR_Belasco.clicked.connect(lambda: self.action(9))
         self.ui.btn_XOR_Trithemius.clicked.connect(lambda: self.action(10))
         self.ui.btn_MH_HD_RSA.clicked.connect(lambda: self.action(11))
         self.ui.btn_MH_HD_SDES.clicked.connect(lambda: self.action(12))
