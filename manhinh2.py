@@ -175,6 +175,15 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_MH_HD_AES.pressed.connect(
             lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_AES)
         )
+        self.ui.btn_MH_HD_MD5.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_MD5)
+        )
+        self.ui.btn_MH_HD_SHA256.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_SHA256)
+        )
+        self.ui.btn_MH_HD_SHA3.pressed.connect(
+            lambda: self.setActiveTechniqueButton(self.ui.btn_MH_HD_SHA3)
+        )
 
     def setupActionEvent(self):
         ### đọc ghi file
@@ -298,7 +307,6 @@ class MyMainWindow(QMainWindow):
                 self.setTextFromFile()
 
     def MoFileKey(self):
-        temp = "Mở file key " + self.ui.label.text()
         file_dialog = QFileDialog()
         file_dialog.setNameFilters(["Text Files (*.txt)"])
         file_dialog.selectNameFilter("Text Files (*.txt)")
