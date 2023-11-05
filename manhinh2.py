@@ -17,8 +17,8 @@ from mahoaclass.mahoaAES_class import CAES
 import mahoaclass.mahoaS_DES
 from mahoaclass.mahoaDES_class import CDES
 from cryptography.fernet import Fernet
-from PyQt6.QtCore import QObject, pyqtSignal
-from manhinhchinh import ManHinhChinh
+import mahoaclass.mahoasha256,mahoaclass.mahoasha3,mahoaclass.mahoamd5
+
 class MyMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -83,9 +83,7 @@ class MyMainWindow(QMainWindow):
             29: "Giải mã Hiện đại - S-DES",
             30: "Giải mã Hiện đại - DES",
             31: "Giải mã Hiện đại - AES",
-            32: "Giải mã Hiện đại - SHA256",
-            33: "Giải mã Hiện đại - MD5",
-            34: "Giải mã Hiện đại - SHA3",
+
     }
    
 
@@ -206,6 +204,9 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_MH_HD_SDES.clicked.connect(lambda: self.action(12))
         self.ui.btn_MH_HD_DES.clicked.connect(lambda: self.action(13))
         self.ui.btn_MH_HD_AES.clicked.connect(lambda: self.action(14))
+        self.ui.btn_MH_HD_SHA256.clicked.connect(lambda: self.action(15))
+        self.ui.btn_MH_HD_MD5.clicked.connect(lambda: self.action(16))
+        self.ui.btn_MH_HD_SHA3.clicked.connect(lambda: self.action(17))
 
         ### sự kiện cho btn mã hoá và btn giải mã
         self.ui.btn_MH_K.clicked.connect(self.ThucHienMH_GM)
@@ -245,6 +246,15 @@ class MyMainWindow(QMainWindow):
 
         self.ui.label.setStyleSheet("font-weight: bold;")
         self.ui.stackedWidget.setCurrentIndex(kythuatmenu)
+        if self.ui.toolBox.currentIndex() ==1:
+            self.ui.btn_MH_HD_SHA256.hide()
+            self.ui.btn_MH_HD_SHA3.hide()
+            self.ui.btn_MH_HD_MD5.hide()
+        else:
+            self.ui.btn_MH_HD_SHA256.show()
+            self.ui.btn_MH_HD_SHA3.show()
+            self.ui.btn_MH_HD_MD5.show()
+
 
     def setText_MenuOnclick(self, menu_code):
         menu_name = self.menu_mapping[menu_code]
@@ -264,7 +274,7 @@ class MyMainWindow(QMainWindow):
         temp = 0
         if self.ui.toolBox.currentIndex() == 1:
             temp = 2
-        if self.curtechnique not in [4, 5, 6, 10, 14, 21, 22, 23, 27, 31]:
+        if self.curtechnique not in [4, 5, 6, 10, 14,15,16,17, 21, 22, 23, 27, 31]:
             self.ui.stackedWidget_2.setCurrentIndex(0 + temp)
         else:
             self.ui.stackedWidget_2.setCurrentIndex(1 + temp)
@@ -334,7 +344,7 @@ class MyMainWindow(QMainWindow):
             QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
             flag = True
 
-        if (self.curtechnique not in [4, 5, 6, 10, 14, 21, 22, 23, 27, 31] and self.ui.toolBox.currentIndex() == 0):
+        if (self.curtechnique not in [4, 5, 6, 10, 14,15,16,17, 21, 22, 23, 27, 31] and self.ui.toolBox.currentIndex() == 0):
             temp = "Lưu File Key " + self.ui.label.text()
             file_name, _ = QFileDialog.getSaveFileName(self, temp, "", "Text Files (*.txt);;All Files (*)")
             if file_name:
@@ -400,7 +410,7 @@ class MyMainWindow(QMainWindow):
             QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Nội dung!")
             self.set_focus_1()
             return
-        if self.curtechnique not in [4, 5, 6, 10, 14, 21, 22, 23, 27, 31]:
+        if self.curtechnique not in [4, 5, 6, 10, 14,15,16,17, 21, 22, 23, 27, 31]:
             if not self.doituongbaomat.key:
                 QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Key!")
                 self.set_focus_2()
@@ -434,6 +444,17 @@ class MyMainWindow(QMainWindow):
             self.KyThuatDES()
         if self.curtechnique == 14 or self.curtechnique == 31:
             self.KyThuatAES()
+        if self.curtechnique == 15:
+            self.KythuatSHA256()
+        if self.curtechnique == 16:
+            self.KythuatMD5()
+        if self.curtechnique == 17:
+            self.KythuatSHA3()
+
+
+
+
+        
         self.UpdateViewModel()
 
         # Các hàm kỹ thuật
@@ -586,6 +607,15 @@ class MyMainWindow(QMainWindow):
         else:
             cAES.ciphertext = self.doituongbaomat.truoc
             self.doituongbaomat.sau = cAES.decrypt_text()
+
+
+    def KythuatSHA3(self):
+        self.doituongbaomat.sau = mahoaclass.mahoasha3.MaHoaSha3(self.doituongbaomat.truoc)
+    def KythuatSHA256(self):
+        self.doituongbaomat.sau = mahoaclass.mahoasha256.MaHoaSha256(self.doituongbaomat.truoc)        
+    def KythuatMD5(self):
+        self.doituongbaomat.sau = mahoaclass.mahoamd5.MaHoaMD5(self.doituongbaomat.truoc)
+
 
 
 def main():
