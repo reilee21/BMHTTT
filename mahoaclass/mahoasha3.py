@@ -12,7 +12,7 @@ def MaHoaSha3(data):
     return sha3_256_hash
 
 def Run():
-    data = "Phạm Đức Thành"  # Dữ liệu bạn muốn mã hoá
+    data = "123"  # Dữ liệu bạn muốn mã hoá
     sha3_256_hash = MaHoaSha3(data)
     print("Mã băm SHA-3-256 của ",data," là:", sha3_256_hash)
 

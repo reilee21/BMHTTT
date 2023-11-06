@@ -37,6 +37,7 @@ class Ui_MainWindow(object):
 "#btn_Home:hover{\n"
 "background-color: rgb(0, 128, 211);\n"
 "    color: rgb(255, 255, 255);\n"
+"    font: bold;\n"
 "}\n"
 "\n"
 "")
@@ -248,7 +249,7 @@ class Ui_MainWindow(object):
         self.btn_Home.setFont(font)
         self.btn_Home.setStyleSheet("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("icon//home-button.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("icon//logout.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_Home.setIcon(icon2)
         self.btn_Home.setObjectName("btn_Home")
         self.verticalLayout_4.addWidget(self.btn_Home)
@@ -975,7 +976,7 @@ class Ui_MainWindow(object):
         self.btnGM_XOR.setText(_translate("MainWindow", "Kỹ thuật XOR"))
         self.btnGM_HienDai.setText(_translate("MainWindow", "Kỹ thuật hiện đại"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.menuGM), _translate("MainWindow", "Giải mã"))
-        self.btn_Home.setText(_translate("MainWindow", "Màn hình chính"))
+        self.btn_Home.setText(_translate("MainWindow", "Đăng xuất"))
         self.btn_TT_Ceasar.setText(_translate("MainWindow", "Ceasar"))
         self.btn_TT_Vigenere.setText(_translate("MainWindow", "Vigenere"))
         self.btn_TT_Trithemius.setText(_translate("MainWindow", "Trithemius"))

@@ -121,7 +121,7 @@ QLabel{
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Bắt đầu</string>
+     <string>Đăng nhập</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">

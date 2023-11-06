@@ -109,7 +109,7 @@ class ManHinhChinh(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Phần mềm mã hoá văn bản tiếng việt"))
         self.label_3.setText(_translate("MainWindow", "Các thuật toán mã hoá văn bản tiếng việt"))
-        self.pushButton.setText(_translate("MainWindow", "Bắt đầu"))
+        self.pushButton.setText(_translate("MainWindow", "Đăng nhập"))
         self.label_7.setText(_translate("MainWindow", "HỌC KỲ I NĂM HỌC 2023-2024 "))
         self.label_5.setText(_translate("MainWindow", "Lê Hoàng Quốc Khánh – 21DH113760 "))
         self.label_4.setText(_translate("MainWindow", "Võ Hoàng Thái Đạt – 21DH114385"))

@@ -1,9 +1,9 @@
 # main.py
 import sys
 from manhinhchinh import ManHinhChinh
-from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt6.QtWidgets import QMainWindow, QApplication,QDialog,QMessageBox
 from manhinh2 import MyMainWindow
-
+from manhinhlogin import LoginDialog
 cur_wd = None
 old_wd = None
 class Main(QMainWindow):
@@ -34,11 +34,28 @@ def home():
     old_wd = cur_wd    
     cur_wd = Main()
     cur_wd.show() 
-    cur_wd.ui.pushButton.clicked.connect(wd2)
+    cur_wd.ui.pushButton.clicked.connect(login)
     if (old_wd):
         cl()
 def cl():
     old_wd.close()
+
+def login():
+    global dialog
+    dialog = LoginDialog()
+    dialog.data_signal.connect(checklogin)
+    dialog.exec()
+
+def checklogin(data):
+    global dialog
+    if data:
+        dialog.close()
+        QMessageBox.information(None, "Thông báo", "Đăng nhập thành công.")       
+        wd2()
+        
+        
+
+
 
 if __name__ == "__main__":
     main()

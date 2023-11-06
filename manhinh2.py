@@ -18,13 +18,14 @@ import mahoaclass.mahoaS_DES
 from mahoaclass.mahoaDES_class import CDES
 from cryptography.fernet import Fernet
 import mahoaclass.mahoasha256,mahoaclass.mahoasha3,mahoaclass.mahoamd5
-
 class MyMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setup()
+
+
         ## Create DoiTuongBaoMat
         self.doituongbaomat = DoiTuongBaoMat("", "", "")
 

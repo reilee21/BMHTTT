@@ -2,6 +2,7 @@
   <qresource prefix="icon">
     <file>icon/bg.jpg</file>
     <file>icon/icons8-key-64.png</file>
+    <file>icon/hidepass.png</file>
     <file>icon/icons8-save-50.png</file>
     <file>icon/home-button.png</file>
     <file>icon/icons8-import-file-64.png</file>
@@ -9,8 +10,5 @@
     <file>icon/icons8-decryption-62-_1_.ico</file>
     <file>icon/icons8-encryption-48.ico</file>
     <file>icon/icons8-encryption-48-_1_.ico</file>
-  </qresource>
-  <qresource prefix="img">
-    <file>1.jpg</file>
   </qresource>
 </RCC>
