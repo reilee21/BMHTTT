@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:hover{        \n"
 "    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(104, 92, 254);\n"
+"    background-color: #00167C;\n"
 "    font:bold;\n"
 "}")
         self.menuMH.setObjectName("menuMH")
@@ -180,7 +180,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:hover{        \n"
 "    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(104, 92, 254);\n"
+"    background-color: #00167C;\n"
 "    font:bold;\n"
 "}")
         self.menuGM.setObjectName("menuGM")
@@ -490,17 +490,18 @@ class Ui_MainWindow(object):
         self.stackedWidget_2 = QtWidgets.QStackedWidget(parent=self.body)
         self.stackedWidget_2.setStyleSheet("\n"
 "QPushButton{    \n"
-"    border: 1px solid rgb(0, 151, 197);\n"
+"    border: 2px solid #00167C;\n"
 "    border-radius:10;\n"
-"    color:rgb(0, 151, 197)\n"
+"    font:bold;\n"
+"    color:#00167C\n"
 "}\n"
 "QPushButton:hover{    \n"
-"background-color: rgb(0, 65, 181);\n"
+"background-color: #00167C;\n"
 "    color:rgb(255,255,255);\n"
 "}\n"
 "\n"
 "QTextEdit{    \n"
-"    border:1px solid  rgb(0, 151, 197);\n"
+"    border:1px solid  #006491;\n"
 "    border-radius:10px;\n"
 "    padding:8px;\n"
 "}\n"

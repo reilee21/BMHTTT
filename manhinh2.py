@@ -230,7 +230,7 @@ class MyMainWindow(QMainWindow):
                 "QPushButton { background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-weight: regular; QPushButton:hover { background-color: rgb(255, 255, 255); }"
             )
         button.setStyleSheet(
-            "QPushButton { color: rgb(255, 255, 255);background-color: rgb(104, 92, 254);font:bold; }"
+            "QPushButton { color: rgb(255, 255, 255);background-color: #00167C;font:bold; }"
         )
         self.setActiveTechniqueButton(None)
         self.activeMenuButton = button
