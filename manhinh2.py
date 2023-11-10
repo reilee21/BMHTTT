@@ -17,14 +17,15 @@ from mahoaclass.mahoaAES_class import CAES
 import mahoaclass.mahoaS_DES
 from mahoaclass.mahoaDES_class import CDES
 from cryptography.fernet import Fernet
-import mahoaclass.mahoasha256,mahoaclass.mahoasha3,mahoaclass.mahoamd5
+import mahoaclass.mahoasha256, mahoaclass.mahoasha3, mahoaclass.mahoamd5
+
+
 class MyMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setup()
-
 
         ## Create DoiTuongBaoMat
         self.doituongbaomat = DoiTuongBaoMat("", "", "")
@@ -84,9 +85,7 @@ class MyMainWindow(QMainWindow):
             29: "Giải mã Hiện đại - S-DES",
             30: "Giải mã Hiện đại - DES",
             31: "Giải mã Hiện đại - AES",
-
-    }
-   
+        }
 
     def setup(self):
         self.ui.toolBox.setCurrentIndex(0)
@@ -95,7 +94,6 @@ class MyMainWindow(QMainWindow):
         self.ui.stackedWidget_2.setCurrentIndex(4)
         self.setupMenuEvent()
         self.setupActionEvent()
-
 
     def setupMenuEvent(self):
         self.ui.btnMH_ThayThe.clicked.connect(lambda: self.openMenu(101))
@@ -199,7 +197,7 @@ class MyMainWindow(QMainWindow):
         self.ui.btn_Save_MH_0K.clicked.connect(self.GhiFile)
         self.ui.btn_Save_GM_0K.clicked.connect(self.GhiFile)
 
-        ### Chọn kỹ thuật 
+        ### Chọn kỹ thuật
         self.ui.btn_TT_Ceasar.clicked.connect(lambda: self.action(1))
         self.ui.btn_TT_Vigenere.clicked.connect(lambda: self.action(2))
         self.ui.btn_TT_Belasco.clicked.connect(lambda: self.action(3))
@@ -256,7 +254,7 @@ class MyMainWindow(QMainWindow):
 
         self.ui.label.setStyleSheet("font-weight: bold;")
         self.ui.stackedWidget.setCurrentIndex(kythuatmenu)
-        if self.ui.toolBox.currentIndex() ==1:
+        if self.ui.toolBox.currentIndex() == 1:
             self.ui.btn_MH_HD_SHA256.hide()
             self.ui.btn_MH_HD_SHA3.hide()
             self.ui.btn_MH_HD_MD5.hide()
@@ -264,7 +262,6 @@ class MyMainWindow(QMainWindow):
             self.ui.btn_MH_HD_SHA256.show()
             self.ui.btn_MH_HD_SHA3.show()
             self.ui.btn_MH_HD_MD5.show()
-
 
     def setText_MenuOnclick(self, menu_code):
         menu_name = self.menu_mapping[menu_code]
@@ -284,13 +281,12 @@ class MyMainWindow(QMainWindow):
         temp = 0
         if self.ui.toolBox.currentIndex() == 1:
             temp = 2
-        if self.curtechnique not in [4, 5, 6, 10, 14,15,16,17, 21, 22, 23, 27, 31]:
+        if self.curtechnique not in [4, 5, 6, 10, 11, 14, 15, 16, 17, 21, 22, 23, 27, 28]:
             self.ui.stackedWidget_2.setCurrentIndex(0 + temp)
         else:
             self.ui.stackedWidget_2.setCurrentIndex(1 + temp)
 
         self.UpdateViewModel()
-
 
     def MoFile(self):
         file_dialog = QFileDialog()
@@ -353,14 +349,28 @@ class MyMainWindow(QMainWindow):
             QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
             flag = True
 
-        if (self.curtechnique not in [4, 5, 6, 10, 14,15,16,17, 21, 22, 23, 27, 31] and self.ui.toolBox.currentIndex() == 0):
+        if (
+            self.curtechnique not in [4, 5, 6, 10, 11, 14, 15, 16, 17, 21, 22, 23, 27, 28]
+            and self.ui.toolBox.currentIndex() == 0
+        ):
             temp = "Lưu File Key " + self.ui.label.text()
-            file_name, _ = QFileDialog.getSaveFileName(self, temp, "", "Text Files (*.txt);;All Files (*)")
+            file_name, _ = QFileDialog.getSaveFileName(
+                self, temp, "", "Text Files (*.txt);;All Files (*)"
+            )
             if file_name:
                 with open(file_name, "w", encoding="utf-8") as file:
                     file.write(self.doituongbaomat.key)
                 QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
-        if(flag):
+        if (self.curtechnique in [14]):
+            temp = "Lưu File Key " + self.ui.label.text()
+            file_name, _ = QFileDialog.getSaveFileName(
+                self, temp, "", "Text Files (*.txt);;All Files (*)"
+            )
+            if file_name:
+                with open(file_name, "wb") as file:
+                    file.write(self.doituongbaomat.key)
+                QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
+        if flag:
             self.doituongbaomat = DoiTuongBaoMat("", "", "")
             self.UpdateViewModel()
 
@@ -412,14 +422,13 @@ class MyMainWindow(QMainWindow):
         elif page == 2:
             self.ui.txt_Key_GM_K.setFocus()
 
-
     def ThucHienMH_GM(self):
         self.UpdateTxtToObjectFromView()
         if not self.doituongbaomat.truoc:
             QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Nội dung!")
             self.set_focus_1()
             return
-        if self.curtechnique not in [4, 5, 6, 10, 14,15,16,17, 21, 22, 23, 27, 31]:
+        if self.curtechnique not in [4, 5, 6, 10, 11, 14, 15, 16, 17, 21, 22, 23, 27, 28]:
             if not self.doituongbaomat.key:
                 QMessageBox.warning(self, "Lỗi", "Vui lòng nhập vào Key!")
                 self.set_focus_2()
@@ -460,16 +469,12 @@ class MyMainWindow(QMainWindow):
         if self.curtechnique == 17:
             self.KythuatSHA3()
 
-
-
-
-        
         self.UpdateViewModel()
 
         # Các hàm kỹ thuật
 
     def KyThuatCeasar(self):
-        baomat = CCeasar('','','')
+        baomat = CCeasar("", "", "")
         x = self.doituongbaomat.key
         if not x.isdigit():
             QMessageBox.information(self, "Thông báo", "Key phải là số nguyên!!!")
@@ -583,48 +588,60 @@ class MyMainWindow(QMainWindow):
             self.doituongbaomat.sau = cXORTrithemius.MaHoa(cXORTrithemius.ciphertext)
 
     def KyThuatRSA(self):
-        e=65537; n=4255903; d=2480777
+        e = 65537
+        n = 4255903
+        d = 2480777
         if self.curtechnique == 11:
-            plaintext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = mahoaclass.mahoaRSA.MaHoa(plaintext,e,n)
+            self.plaintext = self.doituongbaomat.truoc
+            self.ciphertext = mahoaclass.mahoaRSA.MaHoa(self.plaintext, e, n)
+            self.result = ""
+            for i in self.ciphertext:
+                self.result += str(i) + " "
+            self.doituongbaomat.sau = self.result
         else:
-            ciphertext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = self.mahoaRSA.GiaiMa(ciphertext,d,n)
+            self.ciphertext = [int(x) for x in self.doituongbaomat.truoc.split()]
+            self.doituongbaomat.sau = mahoaclass.mahoaRSA.GiaiMa(self.ciphertext, d, n)
+
     def KyThuatSDES(self):
         if self.curtechnique == 12:
             plaintext = self.doituongbaomat.truoc
             key = self.doituongbaomat.key
-            self.doituongbaomat.sau = mahoaclass.mahoaS_DES.MaHoa(plaintext,key)
+            self.doituongbaomat.sau = mahoaclass.mahoaS_DES.MaHoa(plaintext, key)
         else:
             ciphertext = self.doituongbaomat.truoc
             key = self.doituongbaomat.key
-            self.doituongbaomat.sau = mahoaclass.mahoaS_DES.GiaiMa(ciphertext,key)
+            self.doituongbaomat.sau = mahoaclass.mahoaS_DES.GiaiMa(ciphertext, key)
 
     def KyThuatDES(self):
         cDES = CDES()
         if self.curtechnique == 13:
             self.doituongbaomat.sau = cDES.encrypt(self.doituongbaomat.truoc)
         else:
-            self.doituongbaomat.sau = cDES.decrypt(self.doituongbaomat.truoc) 
+            self.doituongbaomat.sau = cDES.decrypt(self.doituongbaomat.truoc)
 
     def KyThuatAES(self):
         cAES = CAES()
-        cAES.key = Fernet.generate_key()
         if self.curtechnique == 14:
-            cAES.plaintext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = str(cAES.encrypt_text())
+            self.result, self.key = cAES.MaHoa(self.doituongbaomat.truoc)
+            self.doituongbaomat.key = self.key
+            self.doituongbaomat.sau = self.result.decode("utf-8")
         else:
-            cAES.ciphertext = self.doituongbaomat.truoc
-            self.doituongbaomat.sau = cAES.decrypt_text()
-
+            self.doituongbaomat.sau = cAES.GiaiMa(self.doituongbaomat.truoc, self.doituongbaomat.key)
 
     def KythuatSHA3(self):
-        self.doituongbaomat.sau = mahoaclass.mahoasha3.MaHoaSha3(self.doituongbaomat.truoc)
-    def KythuatSHA256(self):
-        self.doituongbaomat.sau = mahoaclass.mahoasha256.MaHoaSha256(self.doituongbaomat.truoc)        
-    def KythuatMD5(self):
-        self.doituongbaomat.sau = mahoaclass.mahoamd5.MaHoaMD5(self.doituongbaomat.truoc)
+        self.doituongbaomat.sau = mahoaclass.mahoasha3.MaHoaSha3(
+            self.doituongbaomat.truoc
+        )
 
+    def KythuatSHA256(self):
+        self.doituongbaomat.sau = mahoaclass.mahoasha256.MaHoaSha256(
+            self.doituongbaomat.truoc
+        )
+
+    def KythuatMD5(self):
+        self.doituongbaomat.sau = mahoaclass.mahoamd5.MaHoaMD5(
+            self.doituongbaomat.truoc
+        )
 
 
 def main():
