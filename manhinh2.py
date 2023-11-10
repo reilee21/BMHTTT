@@ -16,7 +16,6 @@ import mahoaclass.mahoaRSA
 from mahoaclass.mahoaAES_class import CAES
 import mahoaclass.mahoaS_DES
 from mahoaclass.mahoaDES_class import CDES
-from cryptography.fernet import Fernet
 import mahoaclass.mahoasha256, mahoaclass.mahoasha3, mahoaclass.mahoamd5
 
 
@@ -348,7 +347,6 @@ class MyMainWindow(QMainWindow):
                 file.write(self.doituongbaomat.sau)
             QMessageBox.information(self, "Thông báo", temp + " thành công !!!")
             flag = True
-
         if (
             self.curtechnique not in [4, 5, 6, 10, 11, 14, 15, 16, 17, 21, 22, 23, 27, 28]
             and self.ui.toolBox.currentIndex() == 0
@@ -613,11 +611,20 @@ class MyMainWindow(QMainWindow):
             self.doituongbaomat.sau = mahoaclass.mahoaS_DES.GiaiMa(ciphertext, key)
 
     def KyThuatDES(self):
-        cDES = CDES()
+        key = self.doituongbaomat.key.encode('ascii')
+        if len(key) != 8:
+            QMessageBox.information(self, "Thông báo", "Key phải là chuỗi 8 bytes!!!")
+            return
+        cDES = CDES(key)
         if self.curtechnique == 13:
-            self.doituongbaomat.sau = cDES.encrypt(self.doituongbaomat.truoc)
+            plaintext = self.doituongbaomat.truoc
+            plaintext_bytes = plaintext.encode()
+            self.doituongbaomat.sau = cDES.encrypt(plaintext_bytes).hex()
         else:
-            self.doituongbaomat.sau = cDES.decrypt(self.doituongbaomat.truoc)
+            ciphertext_hex = self.doituongbaomat.truoc
+            ciphertext_bytes = bytes.fromhex(ciphertext_hex)
+            result = cDES.decrypt(ciphertext_bytes)
+            self.doituongbaomat.sau = result.decode('utf-8')
 
     def KyThuatAES(self):
         cAES = CAES()

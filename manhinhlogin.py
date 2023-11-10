@@ -53,8 +53,8 @@ class LoginDialog(QDialog):
         else:
             message_box = QMessageBox()
             message_box.setIcon(QMessageBox.Icon.Information)  # Loại biểu tượng (Information)
-            message_box.setWindowTitle('Thông báo')  # Tiêu đề
-            message_box.setText('Bạn nhập sai username và password.')  # Nội dung thông báo
+            message_box.setWindowTitle('Lỗi')  # Tiêu đề
+            message_box.setText('Tài khoản hoặc mật khẩu không đúng!')  # Nội dung thông báo
             message_box.setStandardButtons(QMessageBox.StandardButton.Ok)  # Các nút (OK)
             result = message_box.exec()  # Hiển thị hộp thoại và chờ đợi phản hồi từ người dùng
             self.ui.txt_password.setFocus()

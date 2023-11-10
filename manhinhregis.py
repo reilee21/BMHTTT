@@ -54,6 +54,12 @@ class RegisterDialog(QDialog):
         if self.check_signup():
             self.accept()
             self.login_dialog.set_username_password(self.ui.txt_username.text(),self.ui.txt_password.text())
+            message_box = QMessageBox()
+            message_box.setIcon(QMessageBox.Icon.Information)  # Loại biểu tượng (Information)
+            message_box.setWindowTitle('Thông báo')  # Tiêu đề
+            message_box.setText('Đăng ký tài khoản thành công!')  # Nội dung thông báo
+            message_box.setStandardButtons(QMessageBox.StandardButton.Ok)  # Các nút (OK)
+            message_box.exec() 
 
 
     def check_signup(self):
@@ -63,10 +69,10 @@ class RegisterDialog(QDialog):
         if(password != password2):
             message_box = QMessageBox()
             message_box.setIcon(QMessageBox.Icon.Information)  # Loại biểu tượng (Information)
-            message_box.setWindowTitle('Thông báo')  # Tiêu đề
-            message_box.setText('Bạn nhập password lần hai chưa đúng.')  # Nội dung thông báo
+            message_box.setWindowTitle('Lỗi')  # Tiêu đề
+            message_box.setText('Password nhập lại không khớp!')  # Nội dung thông báo
             message_box.setStandardButtons(QMessageBox.StandardButton.Ok)  # Các nút (OK)
-            result = message_box.exec()  # Hiển thị hộp thoại và chờ đợi phản hồi từ người dùng
+            message_box.exec()  # Hiển thị hộp thoại và chờ đợi phản hồi từ người dùng
             self.ui.txt_repassword.setFocus()
             return False
         else:
@@ -75,5 +81,4 @@ class RegisterDialog(QDialog):
             
             with open(account_file_path, "a", encoding='utf-8') as file:
                 file.write(us+","+ps+"\n")
-
         return True

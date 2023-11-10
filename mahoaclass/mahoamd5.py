@@ -16,7 +16,7 @@ def Run():
     md5_hash = MaHoaMD5(userName)
     print("Mã băm MD5 của ",userName," là:", md5_hash)
 
-    md5_hash = MaHoaMD5(userName)
+    md5_hash = MaHoaMD5(password)
     print("Mã băm MD5 của ",password," là:", md5_hash)
 
 if __name__ == '__main__':

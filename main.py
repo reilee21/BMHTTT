@@ -50,7 +50,7 @@ def checklogin(data):
     global dialog
     if data:
         dialog.close()
-        QMessageBox.information(None, "Thông báo", "Đăng nhập thành công.")       
+        QMessageBox.information(None, "Thông báo", "Đăng nhập thành công!")       
         wd2()
         
         
