@@ -1,49 +1,38 @@
 from Crypto.Cipher import DES
-from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad, unpad
 
 class CDES:
-    def __init__(self):
-        # Tạo một khóa DES 8 byte ngẫu nhiên khi khởi tạo đối tượng
-        self.key = get_random_bytes(8)
+    def __init__(self, key=""):
+        self.key = key
 
     def encrypt(self, plaintext):
+        plaintext = pad(plaintext, 8)
         cipher = DES.new(self.key, DES.MODE_ECB)
         ciphertext = cipher.encrypt(plaintext)
         return ciphertext
 
     def decrypt(self, ciphertext):
-        decipher = DES.new(self.key, DES.MODE_ECB)
-        decrypted = decipher.decrypt(ciphertext)
+        cipher = DES.new(self.key, DES.MODE_ECB)
+        decrypted = cipher.decrypt(ciphertext)
+        decrypted = unpad(decrypted, 8)
         return decrypted
 
 
-# Hàm kiểm tra dữ liệu có thể mã hóa thành 8 bytes hay không
-def is_valid_input(plaintext):
-    plaintext_bytes = plaintext.encode("utf-8")
-    if len(plaintext_bytes) % 8 != 0:
-        return False
-    return True
-
-
-def main():
-    # Sử dụng class DESCipher
-    des_cipher = CDES()
-
-    # Nhập dữ liệu từ người dùng và kiểm tra tính hợp lệ
+if __name__ == "__main__":
     while True:
-        plaintext = input("Mời nhập vào dữ liệu cần mã hóa: ")
-        if not is_valid_input(plaintext):
-            print("Nội dung không đúng 8 bytes. Vui lòng nhập lại.")
+        key = input("Enter the 8-byte DES key: ").encode()
+        if len(key) != 8:
+            print("The key must be 8 bytes long.")
         else:
-            plaintext_bytes = plaintext.encode("utf-8")
-            ciphertext = des_cipher.encrypt(plaintext_bytes)
-            print("Ciphertext:", ciphertext)
-            print("Key:", des_cipher.key)
-            decrypted = des_cipher.decrypt(ciphertext)
-            print("Decrypted:", decrypted.decode("utf-8"))
+            # Initialize the DESCipher with the provided key
+            des_cipher = CDES(key)
             break
 
+    plaintext = input("Enter the data to encrypt: ")
+    plaintext_bytes = plaintext.encode()
 
-# Gọi hàm main để thực thi chương trình
-if __name__ == "__main__":
-    main()
+    ciphertext = des_cipher.encrypt(plaintext_bytes)
+    print("Ciphertext:", ciphertext)
+
+    decrypted = des_cipher.decrypt(ciphertext)
+    print("Decrypted:", decrypted.decode())

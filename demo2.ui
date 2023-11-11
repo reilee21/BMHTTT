@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Phần mềm mã hoá văn bản tiếng Việt</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(227, 233, 247);</string>
@@ -158,7 +158,7 @@ background-color: rgb(255, 255, 255);
 </string>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <property name="tabSpacing">
              <number>8</number>
@@ -217,7 +217,7 @@ QPushButton:hover{
                 <x>10</x>
                 <y>0</y>
                 <width>211</width>
-                <height>261</height>
+                <height>257</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout">
@@ -645,7 +645,7 @@ background-color: rgb(0, 65, 181);
 </string>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="page">
              <layout class="QGridLayout" name="gridLayout_5">
@@ -667,6 +667,9 @@ background-color: rgb(0, 65, 181);
                  <font>
                   <pointsize>14</pointsize>
                  </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="text">
                  <string>Ceasar</string>
@@ -692,6 +695,9 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
                  <string>Vigenere</string>
                 </property>
@@ -716,13 +722,16 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
                  <string>Trithemius</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="3">
-               <widget class="QPushButton" name="btn_TT_Belassco">
+               <widget class="QPushButton" name="btn_TT_Belasco">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -740,8 +749,11 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
-                 <string>Belassco</string>
+                 <string>Belasco</string>
                 </property>
                </widget>
               </item>
@@ -768,6 +780,9 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
                  <string>Hai dòng</string>
                 </property>
@@ -791,6 +806,9 @@ background-color: rgb(0, 65, 181);
                  <font>
                   <pointsize>14</pointsize>
                  </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="text">
                  <string>Nhiều dòng</string>
@@ -820,6 +838,9 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
                  <string>Ceasar</string>
                 </property>
@@ -843,6 +864,9 @@ background-color: rgb(0, 65, 181);
                  <font>
                   <pointsize>14</pointsize>
                  </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="text">
                  <string>Vigenere</string>
@@ -868,13 +892,16 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
                  <string>Trithemius</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="3">
-               <widget class="QPushButton" name="btn_XOR_Belassco">
+               <widget class="QPushButton" name="btn_XOR_Belasco">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -892,8 +919,11 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
-                 <string>Belassco</string>
+                 <string>Belasco</string>
                 </property>
                </widget>
               </item>
@@ -901,8 +931,8 @@ background-color: rgb(0, 65, 181);
             </widget>
             <widget class="QWidget" name="page_4">
              <layout class="QGridLayout" name="gridLayout_8">
-              <item row="0" column="6">
-               <widget class="QPushButton" name="btn_MH_HD_MD5">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="btn_MH_HD_AES">
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
@@ -920,8 +950,38 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
-                 <string>MD5</string>
+                 <string>AES</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="btn_MH_HD_RSA">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>RSA</string>
                 </property>
                </widget>
               </item>
@@ -944,80 +1004,11 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
                  <string>S-DES</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="btn_MH_HD_RSAR">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>200</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>RSAR</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="btn_MH_HD_AES">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>200</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>AES</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="4">
-               <widget class="QPushButton" name="btn_MH_HD_HSA6">
-                <property name="minimumSize">
-                 <size>
-                  <width>100</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>200</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>HSA6</string>
                 </property>
                </widget>
               </item>
@@ -1040,8 +1031,92 @@ background-color: rgb(0, 65, 181);
                   <pointsize>14</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="text">
                  <string>DES</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QPushButton" name="btn_MH_HD_SHA3">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>SHA3</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="5">
+               <widget class="QPushButton" name="btn_MH_HD_SHA256">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>SHA256</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="6">
+               <widget class="QPushButton" name="btn_MH_HD_MD5">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>MD5</string>
                 </property>
                </widget>
               </item>
@@ -1088,10 +1163,20 @@ QPushButton{
 QPushButton:hover{	
 background-color: rgb(0, 65, 181);
 	color:rgb(255,255,255);
+}
+
+QTextEdit{	
+	border:1px solid  rgb(0, 151, 197);
+	border-radius:10px;
+	padding:8px;
+}
+QTextEdit:focus{	
+	border:2px solid  rgb(0, 65, 181);
+	border-radius:10px
 }</string>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="MaHoaCoKey">
              <layout class="QGridLayout" name="gridLayout_9">
@@ -1166,8 +1251,11 @@ background-color: rgb(0, 65, 181);
                      <bold>true</bold>
                     </font>
                    </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
-                    <string>Import</string>
+                    <string>Nhập file</string>
                    </property>
                    <property name="icon">
                     <iconset resource="resource.qrc">
@@ -1274,6 +1362,9 @@ background-color: rgb(0, 65, 181);
                     <bold>true</bold>
                    </font>
                   </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="text">
                    <string>Mã hoá</string>
                   </property>
@@ -1352,8 +1443,11 @@ background-color: rgb(0, 65, 181);
                      <bold>true</bold>
                     </font>
                    </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
-                    <string>Save</string>
+                    <string>Lưu</string>
                    </property>
                    <property name="icon">
                     <iconset resource="resource.qrc">
@@ -1456,8 +1550,11 @@ background-color: rgb(0, 65, 181);
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="text">
-                      <string>Import</string>
+                      <string>Nhập file</string>
                      </property>
                      <property name="icon">
                       <iconset resource="resource.qrc">
@@ -1510,6 +1607,9 @@ background-color: rgb(0, 65, 181);
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="text">
                    <string>Mã hoá</string>
@@ -1591,8 +1691,11 @@ background-color: rgb(0, 65, 181);
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="text">
-                      <string>Save</string>
+                      <string>Lưu</string>
                      </property>
                      <property name="icon">
                       <iconset resource="resource.qrc">
@@ -1695,8 +1798,11 @@ background-color: rgb(0, 65, 181);
                      <bold>true</bold>
                     </font>
                    </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
-                    <string>Import</string>
+                    <string>Nhập file</string>
                    </property>
                    <property name="icon">
                     <iconset resource="resource.qrc">
@@ -1775,8 +1881,11 @@ background-color: rgb(0, 65, 181);
                     <bold>true</bold>
                    </font>
                   </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="text">
-                   <string>Import Key</string>
+                   <string>Nhập Key</string>
                   </property>
                   <property name="icon">
                    <iconset resource="resource.qrc">
@@ -1829,6 +1938,9 @@ background-color: rgb(0, 65, 181);
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="text">
                    <string>Giải mã</string>
@@ -1908,8 +2020,11 @@ background-color: rgb(0, 65, 181);
                      <bold>true</bold>
                     </font>
                    </property>
+                   <property name="cursor">
+                    <cursorShape>PointingHandCursor</cursorShape>
+                   </property>
                    <property name="text">
-                    <string>Save</string>
+                    <string>Lưu</string>
                    </property>
                    <property name="icon">
                     <iconset resource="resource.qrc">
@@ -2012,8 +2127,11 @@ background-color: rgb(0, 65, 181);
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="text">
-                      <string>Import</string>
+                      <string>Nhập file</string>
                      </property>
                      <property name="icon">
                       <iconset resource="resource.qrc">
@@ -2066,6 +2184,9 @@ background-color: rgb(0, 65, 181);
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="text">
                    <string>Giải mã</string>
@@ -2147,8 +2268,11 @@ background-color: rgb(0, 65, 181);
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
                      <property name="text">
-                      <string>Save</string>
+                      <string>Lưu</string>
                      </property>
                      <property name="icon">
                       <iconset resource="resource.qrc">
