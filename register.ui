@@ -29,6 +29,7 @@ font:bold
 }
 QDialog{
 background-color:#E3F1EE;
+background-image: url(:/icon/icon/bg.jpg)
 }
 
 #btn_regis{
@@ -62,6 +63,9 @@ background-color:#E3F1EE;
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">text-align: center</string>
+   </property>
    <property name="text">
     <string>Đăng ký tài khoản</string>
    </property>
@@ -85,7 +89,8 @@ background-color:#E3F1EE;
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">font:bold</string>
+    <string notr="true">font:bold;
+border-radius: 5px</string>
    </property>
    <property name="text">
     <string>Đăng ký</string>
@@ -96,7 +101,7 @@ background-color:#E3F1EE;
     <rect>
      <x>30</x>
      <y>70</y>
-     <width>551</width>
+     <width>572</width>
      <height>172</height>
     </rect>
    </property>
@@ -107,6 +112,7 @@ background-color:#E3F1EE;
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
+          <pointsize>10</pointsize>
           <weight>75</weight>
           <italic>false</italic>
           <bold>true</bold>
@@ -133,6 +139,9 @@ background-color:#E3F1EE;
           <width>350</width>
           <height>50</height>
          </size>
+        </property>
+        <property name="placeholderText">
+         <string>Tạo tài khoản</string>
         </property>
        </widget>
       </item>
@@ -163,6 +172,7 @@ background-color:#E3F1EE;
        <widget class="QLabel" name="label_5">
         <property name="font">
          <font>
+          <pointsize>10</pointsize>
           <weight>75</weight>
           <italic>false</italic>
           <bold>true</bold>
@@ -189,6 +199,9 @@ background-color:#E3F1EE;
           <width>350</width>
           <height>50</height>
          </size>
+        </property>
+        <property name="placeholderText">
+         <string>Tạo mật khẩu</string>
         </property>
        </widget>
       </item>
@@ -229,13 +242,14 @@ background-color:#E3F1EE;
        <widget class="QLabel" name="label_2">
         <property name="font">
          <font>
+          <pointsize>10</pointsize>
           <weight>75</weight>
           <italic>false</italic>
           <bold>true</bold>
          </font>
         </property>
         <property name="text">
-         <string>Nhập lại mật khẩu</string>
+         <string>Xác nhận mật khẩu</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -255,6 +269,9 @@ background-color:#E3F1EE;
           <width>350</width>
           <height>50</height>
          </size>
+        </property>
+        <property name="placeholderText">
+         <string>Xác nhận mật khẩu</string>
         </property>
        </widget>
       </item>

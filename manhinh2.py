@@ -611,7 +611,7 @@ class MyMainWindow(QMainWindow):
             self.doituongbaomat.sau = mahoaclass.mahoaS_DES.GiaiMa(ciphertext, key)
 
     def KyThuatDES(self):
-        key = self.doituongbaomat.key.encode('ascii')
+        key = self.doituongbaomat.key.encode('utf-8')
         if len(key) != 8:
             QMessageBox.information(self, "Thông báo", "Key phải là chuỗi 8 bytes!!!")
             return

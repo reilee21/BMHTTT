@@ -1,10 +1,12 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon/password.png</file>
+    <file>icon/user.png</file>
     <file>icon/bg.jpg</file>
+    <file>icon/manhinhmahoa.jpg</file>
     <file>icon/icons8-key-64.png</file>
     <file>icon/hidepass.png</file>
     <file>icon/icons8-save-50.png</file>
-    <file>icon/home-button.png</file>
     <file>icon/icons8-import-file-64.png</file>
     <file>icon/icons8-decryption-62.ico</file>
     <file>icon/icons8-decryption-62-_1_.ico</file>

@@ -473,7 +473,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.stackedWidget, 0, 0, 1, 1)
         self.gridLayout_2.addWidget(self.header, 0, 0, 1, 1)
         self.body = QtWidgets.QWidget(parent=self.container)
-        self.body.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.body.setStyleSheet("background-color: rgb(255, 255, 255); background-image: url(icon//manhinhmahoa.jpg)")
         self.body.setObjectName("body")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.body)
         self.gridLayout_4.setObjectName("gridLayout_4")

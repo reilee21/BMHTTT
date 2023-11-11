@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(600, 300)
+        Dialog.resize(700, 285)
         Dialog.setStyleSheet("QLineEdit{\n"
 "padding:8px;\n"
 "background: white;\n"
@@ -28,6 +28,7 @@ class Ui_Dialog(object):
 "}\n"
 "QDialog{\n"
 "background-color:#E3F1EE;\n"
+"background-image: url(icon//bg.jpg)\n"
 "}\n"
 "\n"
 "#btn_openregis{\n"
@@ -38,7 +39,7 @@ class Ui_Dialog(object):
 "    color: rgb(0, 85, 127);\n"
 "}")
         self.label_4 = QtWidgets.QLabel(parent=Dialog)
-        self.label_4.setGeometry(QtCore.QRect(0, 10, 600, 50))
+        self.label_4.setGeometry(QtCore.QRect(50, 10, 600, 50))
         self.label_4.setMinimumSize(QtCore.QSize(600, 50))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -50,20 +51,33 @@ class Ui_Dialog(object):
         self.label_4.setIndent(-1)
         self.label_4.setObjectName("label_4")
         self.btn_login = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_login.setGeometry(QtCore.QRect(240, 230, 120, 35))
+        self.btn_login.setGeometry(QtCore.QRect(290, 240, 120, 35))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.btn_login = QtWidgets.QPushButton(Dialog)
+        self.btn_login.setGeometry(QtCore.QRect(290, 240, 120, 35))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_login.setFont(font)
         self.btn_login.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.btn_login.setStyleSheet("font:bold")
+        self.btn_login.setStyleSheet("font: bold; background-color: white; border-radius: 10px; border: none")
         self.btn_login.setObjectName("btn_login")
         self.btn_openregis = QtWidgets.QPushButton(parent=Dialog)
         self.btn_openregis.setGeometry(QtCore.QRect(420, 200, 141, 35))
         font = QtGui.QFont()
+        font.setPointSize(10)
         font.setUnderline(False)
         self.btn_openregis.setFont(font)
         self.btn_openregis.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btn_openregis.setStyleSheet("")
         self.btn_openregis.setObjectName("btn_openregis")
         self.layoutWidget = QtWidgets.QWidget(parent=Dialog)
-        self.layoutWidget.setGeometry(QtCore.QRect(70, 60, 491, 131))
+        self.layoutWidget.setGeometry(QtCore.QRect(70, 60, 548, 131))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -72,6 +86,7 @@ class Ui_Dialog(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label = QtWidgets.QLabel(parent=self.layoutWidget)
         font = QtGui.QFont()
+        font.setPointSize(12)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(75)
@@ -80,7 +95,7 @@ class Ui_Dialog(object):
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
         self.txt_username = QtWidgets.QLineEdit(parent=self.layoutWidget)
-        self.txt_username.setMinimumSize(QtCore.QSize(350, 50))
+        self.txt_username.setMinimumSize(QtCore.QSize(350, 48))
         self.txt_username.setMaximumSize(QtCore.QSize(350, 50))
         self.txt_username.setObjectName("txt_username")
         self.horizontalLayout.addWidget(self.txt_username)
@@ -95,6 +110,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_2 = QtWidgets.QLabel(parent=self.layoutWidget)
         font = QtGui.QFont()
+        font.setPointSize(12)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(75)
@@ -114,7 +130,7 @@ class Ui_Dialog(object):
         self.btn_hidepass.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.btn_hidepass.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icon//hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icon/icon/hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_hidepass.setIcon(icon)
         self.btn_hidepass.setObjectName("btn_hidepass")
         self.horizontalLayout_2.addWidget(self.btn_hidepass)
@@ -130,4 +146,6 @@ class Ui_Dialog(object):
         self.btn_login.setText(_translate("Dialog", "Đăng nhập"))
         self.btn_openregis.setText(_translate("Dialog", "Đăng ký tài khoản"))
         self.label.setText(_translate("Dialog", "Tài khoản "))
+        self.txt_username.setPlaceholderText(_translate("Dialog", "Mời bạn nhập vào tài khoản"))
         self.label_2.setText(_translate("Dialog", "Mật khẩu"))
+        self.txt_password.setPlaceholderText(_translate("Dialog", "Mời bạn nhập vào mật khẩu"))

@@ -28,6 +28,7 @@ class Ui_Dialog(object):
 "}\n"
 "QDialog{\n"
 "background-color:#E3F1EE;\n"
+"background-image: url(/icon/bg.jpg)\n"
 "}\n"
 "\n"
 "#btn_regis{\n"
@@ -46,16 +47,18 @@ class Ui_Dialog(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_4.setFont(font)
+        self.label_4.setStyleSheet("text-align: center")
         self.label_4.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_4.setIndent(-1)
         self.label_4.setObjectName("label_4")
         self.btn_signup = QtWidgets.QPushButton(parent=Dialog)
         self.btn_signup.setGeometry(QtCore.QRect(230, 270, 120, 35))
         self.btn_signup.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-        self.btn_signup.setStyleSheet("font:bold")
+        self.btn_signup.setStyleSheet("font:bold;\n"
+"border-radius: 5px")
         self.btn_signup.setObjectName("btn_signup")
         self.layoutWidget = QtWidgets.QWidget(parent=Dialog)
-        self.layoutWidget.setGeometry(QtCore.QRect(30, 70, 551, 172))
+        self.layoutWidget.setGeometry(QtCore.QRect(30, 70, 572, 172))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -64,6 +67,7 @@ class Ui_Dialog(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label = QtWidgets.QLabel(parent=self.layoutWidget)
         font = QtGui.QFont()
+        font.setPointSize(10)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(75)
@@ -87,6 +91,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.label_5 = QtWidgets.QLabel(parent=self.layoutWidget)
         font = QtGui.QFont()
+        font.setPointSize(10)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(75)
@@ -106,7 +111,7 @@ class Ui_Dialog(object):
         self.btn_hidepass.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.btn_hidepass.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icon//hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icon/icon/hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_hidepass.setIcon(icon)
         self.btn_hidepass.setObjectName("btn_hidepass")
         self.horizontalLayout_3.addWidget(self.btn_hidepass)
@@ -115,6 +120,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_2 = QtWidgets.QLabel(parent=self.layoutWidget)
         font = QtGui.QFont()
+        font.setPointSize(10)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(75)
@@ -147,5 +153,8 @@ class Ui_Dialog(object):
         self.label_4.setText(_translate("Dialog", "Đăng ký tài khoản"))
         self.btn_signup.setText(_translate("Dialog", "Đăng ký"))
         self.label.setText(_translate("Dialog", "Tài khoản "))
+        self.txt_username.setPlaceholderText(_translate("Dialog", "Tạo tài khoản"))
         self.label_5.setText(_translate("Dialog", "Mật khẩu"))
-        self.label_2.setText(_translate("Dialog", "Nhập lại mật khẩu"))
+        self.txt_password.setPlaceholderText(_translate("Dialog", "Tạo mật khẩu"))
+        self.label_2.setText(_translate("Dialog", "Xác nhận mật khẩu"))
+        self.txt_repassword.setPlaceholderText(_translate("Dialog", "Xác nhận mật khẩu"))
