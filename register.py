@@ -28,7 +28,7 @@ class Ui_Dialog(object):
 "}\n"
 "QDialog{\n"
 "background-color:#E3F1EE;\n"
-"background-image: url(/icon/bg.jpg)\n"
+"background-image: url(icon//bg.jpg)\n"
 "}\n"
 "\n"
 "#btn_regis{\n"
@@ -111,7 +111,7 @@ class Ui_Dialog(object):
         self.btn_hidepass.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.btn_hidepass.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icon/icon/hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("icon//hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_hidepass.setIcon(icon)
         self.btn_hidepass.setObjectName("btn_hidepass")
         self.horizontalLayout_3.addWidget(self.btn_hidepass)
