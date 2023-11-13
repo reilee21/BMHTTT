@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>285</height>
+    <width>800</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@ font:bold
 }
 QDialog{
 background-color:#E3F1EE;
-background-image: url(:/icon/icon/bg.jpg)
+	background-image: url(:/icon/icon/bg.jpg);
 }
 
 #btn_openregis{
@@ -38,53 +38,31 @@ background-image: url(:/icon/icon/bg.jpg)
 #btn_openregis:hover{
 	text-decoration:underline;	
 	color: rgb(0, 85, 127);
+}
+#btn_login{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(173, 216, 230, 255), stop:1 rgba(170, 225, 255, 255));
+	border-radius: 15px;
+	color: rgb(245, 245, 235);
+}
+#btn_login:hover{
+	background-color: rgba(200, 216, 230, 255);
+    border-radius: 15px; 
+	cursor: pointer;
+    color: black;
 }</string>
   </property>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>10</y>
-     <width>600</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>600</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>14</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Đăng nhập</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="indent">
-    <number>-1</number>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_login">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>470</x>
      <y>240</y>
-     <width>120</width>
+     <width>250</width>
      <height>35</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <weight>75</weight>
      <italic>false</italic>
      <bold>true</bold>
@@ -93,9 +71,11 @@ background-image: url(:/icon/icon/bg.jpg)
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font:bold;
-background-color: white;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Đăng nhập</string>
@@ -104,15 +84,15 @@ background-color: white;</string>
   <widget class="QPushButton" name="btn_openregis">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>610</x>
      <y>200</y>
-     <width>141</width>
+     <width>200</width>
      <height>35</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>12</pointsize>
      <underline>false</underline>
     </font>
    </property>
@@ -120,154 +100,179 @@ background-color: white;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">color: rgb(85, 170, 255);</string>
    </property>
    <property name="text">
     <string>Đăng ký tài khoản</string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QLineEdit" name="txt_username">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>430</x>
      <y>60</y>
-     <width>548</width>
-     <height>131</height>
+     <width>350</width>
+     <height>50</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Tài khoản </string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="txt_username">
-        <property name="minimumSize">
-         <size>
-          <width>350</width>
-          <height>48</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>350</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="placeholderText">
-         <string>Mời bạn nhập vào tài khoản</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>40</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Mật khẩu</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="txt_password">
-        <property name="minimumSize">
-         <size>
-          <width>350</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>350</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="placeholderText">
-         <string>Mời bạn nhập vào mật khẩu</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btn_hidepass">
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>40</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="resource.qrc">
-          <normaloff>:/icon/icon/hidepass.png</normaloff>:/icon/icon/hidepass.png</iconset>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+   <property name="minimumSize">
+    <size>
+     <width>350</width>
+     <height>48</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>500</height>
+    </size>
+   </property>
+   <property name="placeholderText">
+    <string>Mời bạn nhập vào tài khoản</string>
+   </property>
   </widget>
+  <widget class="QLineEdit" name="txt_password">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>140</y>
+     <width>350</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>350</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>500</height>
+    </size>
+   </property>
+   <property name="placeholderText">
+    <string>Mời bạn nhập vào mật khẩu</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>140</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/icon/icon/password.png);
+background-color: none;
+border-radius: 10px</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>60</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/icon/icon/user.png);
+border-radius: 10px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_hidepass">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>145</y>
+     <width>45</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/icon/icon/hidepass.png</normaloff>:/icon/icon/hidepass.png</iconset>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>0</y>
+     <width>381</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/icon/icon/manhinhmahoa.jpg);
+border-radius: 10px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>10</y>
+     <width>110</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Đăng nhập</string>
+   </property>
+  </widget>
+  <zorder>txt_password</zorder>
+  <zorder>btn_login</zorder>
+  <zorder>btn_openregis</zorder>
+  <zorder>txt_username</zorder>
+  <zorder>btn_hidepass</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>
