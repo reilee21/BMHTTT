@@ -254,10 +254,12 @@ class MyMainWindow(QMainWindow):
         self.ui.label.setStyleSheet("font-weight: bold;")
         self.ui.stackedWidget.setCurrentIndex(kythuatmenu)
         if self.ui.toolBox.currentIndex() == 1:
+            self.ui.container.setStyleSheet("#body{border-radius:8px;border-image: url(icon//bg2.jpg)} #header{border-radius:8px} ")
             self.ui.btn_MH_HD_SHA256.hide()
             self.ui.btn_MH_HD_SHA3.hide()
             self.ui.btn_MH_HD_MD5.hide()
         else:
+            self.ui.container.setStyleSheet("#body{border-radius:8px;border-image: url(icon//bg01.jpg)} #header{border-radius:8px}")
             self.ui.btn_MH_HD_SHA256.show()
             self.ui.btn_MH_HD_SHA3.show()
             self.ui.btn_MH_HD_MD5.show()
