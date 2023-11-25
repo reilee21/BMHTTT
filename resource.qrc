@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon/icons8-email-100.png</file>
     <file>icon/showpass.png</file>
     <file>icon/login.jpg</file>
     <file>icon/user.png</file>

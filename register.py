@@ -12,9 +12,9 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(801, 350)
+        Dialog.resize(600, 400)
         Dialog.setStyleSheet("QLineEdit{\n"
-"padding:8px;\n"
+"padding-left:50px;\n"
 "background: white;\n"
 "border: 1px solid #005F49;\n"
 "border-radius: 10px\n"
@@ -28,21 +28,32 @@ class Ui_Dialog(object):
 "}\n"
 "QDialog{\n"
 "background-color:#E3F1EE;\n"
-"background-image: url(/icon/bg.jpg)\n"
+"background-image: url(icon//bg.jpg)\n"
 "}\n"
 "\n"
 "#btn_signup{\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(173, 216, 230, 255), stop:1 rgba(170, 225, 255, 255));\n"
 "    border-radius: 15px;\n"
-"    color: rgb(245, 245, 235);\n"
+"    color: #00557F;\n"
+"    font-weight:bold\n"
 "}\n"
 "#btn_signup:hover{\n"
+"    background-color: #00557F;\n"
+"    cursor: pointer;\n"
+"    color: white;\n"
+"}\n"
+"#btn_back{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(173, 216, 230, 255), stop:1 rgba(170, 225, 255, 255));\n"
+"    border-radius: 15px;\n"
+"    color: rgb(245, 245, 235);\n"
+"}\n"
+"#btn_back:hover{\n"
 "    background-color: rgba(200, 216, 230, 255);\n"
 "    cursor: pointer;\n"
 "    color: black;\n"
 "}")
         self.label_4 = QtWidgets.QLabel(parent=Dialog)
-        self.label_4.setGeometry(QtCore.QRect(500, 10, 201, 41))
+        self.label_4.setGeometry(QtCore.QRect(300, 10, 201, 41))
         self.label_4.setMinimumSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -55,36 +66,37 @@ class Ui_Dialog(object):
         self.label_4.setIndent(-1)
         self.label_4.setObjectName("label_4")
         self.btn_signup = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_signup.setGeometry(QtCore.QRect(470, 290, 250, 35))
+        self.btn_signup.setGeometry(QtCore.QRect(310, 290, 200, 35))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
         self.btn_signup.setFont(font)
         self.btn_signup.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btn_signup.setStyleSheet("")
         self.btn_signup.setObjectName("btn_signup")
         self.txt_username = QtWidgets.QLineEdit(parent=Dialog)
-        self.txt_username.setGeometry(QtCore.QRect(420, 60, 350, 50))
+        self.txt_username.setGeometry(QtCore.QRect(230, 60, 350, 50))
         self.txt_username.setMinimumSize(QtCore.QSize(350, 50))
         self.txt_username.setMaximumSize(QtCore.QSize(350, 50))
         self.txt_username.setObjectName("txt_username")
         self.btn_hidepass = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_hidepass.setGeometry(QtCore.QRect(720, 135, 45, 45))
+        self.btn_hidepass.setGeometry(QtCore.QRect(530, 135, 45, 45))
         self.btn_hidepass.setMinimumSize(QtCore.QSize(40, 40))
         self.btn_hidepass.setMaximumSize(QtCore.QSize(50, 50))
         self.btn_hidepass.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btn_hidepass.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.btn_hidepass.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icon/icon/hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("icon//hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_hidepass.setIcon(icon)
         self.btn_hidepass.setObjectName("btn_hidepass")
         self.txt_repassword = QtWidgets.QLineEdit(parent=Dialog)
-        self.txt_repassword.setGeometry(QtCore.QRect(420, 210, 350, 50))
+        self.txt_repassword.setGeometry(QtCore.QRect(230, 210, 350, 50))
         self.txt_repassword.setMinimumSize(QtCore.QSize(350, 50))
         self.txt_repassword.setMaximumSize(QtCore.QSize(350, 50))
         self.txt_repassword.setObjectName("txt_repassword")
         self.btn_hiderepass = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_hiderepass.setGeometry(QtCore.QRect(720, 215, 45, 45))
+        self.btn_hiderepass.setGeometry(QtCore.QRect(530, 215, 45, 45))
         self.btn_hiderepass.setMinimumSize(QtCore.QSize(40, 40))
         self.btn_hiderepass.setMaximumSize(QtCore.QSize(50, 50))
         self.btn_hiderepass.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
@@ -93,31 +105,31 @@ class Ui_Dialog(object):
         self.btn_hiderepass.setIcon(icon)
         self.btn_hiderepass.setObjectName("btn_hiderepass")
         self.txt_password = QtWidgets.QLineEdit(parent=Dialog)
-        self.txt_password.setGeometry(QtCore.QRect(420, 130, 350, 50))
+        self.txt_password.setGeometry(QtCore.QRect(230, 130, 350, 50))
         self.txt_password.setMinimumSize(QtCore.QSize(350, 50))
         self.txt_password.setMaximumSize(QtCore.QSize(350, 50))
         self.txt_password.setObjectName("txt_password")
         self.label = QtWidgets.QLabel(parent=Dialog)
-        self.label.setGeometry(QtCore.QRect(0, 0, 351, 351))
-        self.label.setStyleSheet("image: url(icon/login.jpg);")
+        self.label.setGeometry(QtCore.QRect(10, 60, 200, 200))
+        self.label.setStyleSheet("image: url(icon//login.jpg);")
         self.label.setText("")
         self.label.setObjectName("label")
         self.label_5 = QtWidgets.QLabel(parent=Dialog)
-        self.label_5.setGeometry(QtCore.QRect(370, 60, 45, 45))
-        self.label_5.setStyleSheet("image: url(icon/user.png);\n"
+        self.label_5.setGeometry(QtCore.QRect(240, 70, 30, 30))
+        self.label_5.setStyleSheet("image: url(icon//user.png);\n"
 "border-radius: 10px;")
         self.label_5.setText("")
         self.label_5.setObjectName("label_5")
         self.label_2 = QtWidgets.QLabel(parent=Dialog)
-        self.label_2.setGeometry(QtCore.QRect(370, 130, 45, 45))
-        self.label_2.setStyleSheet("image: url(icon/password.png);\n"
+        self.label_2.setGeometry(QtCore.QRect(240, 140, 30, 30))
+        self.label_2.setStyleSheet("image: url(icon//password.png);\n"
 "background-color: none;\n"
 "border-radius: 10px")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(parent=Dialog)
-        self.label_3.setGeometry(QtCore.QRect(370, 210, 45, 45))
-        self.label_3.setStyleSheet("image: url(icon/password.png);\n"
+        self.label_3.setGeometry(QtCore.QRect(240, 220, 30, 30))
+        self.label_3.setStyleSheet("image: url(icon//password.png);\n"
 "background-color: none;\n"
 "border-radius: 10px")
         self.label_3.setText("")

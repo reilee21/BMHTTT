@@ -21,7 +21,7 @@ def main():
 
 def wd2():
     global cur_wd, old_wd
-    old_wd = cur_wd
+    old_wd = cur_wd 
     cur_wd = MyMainWindow()
     cur_wd.show()
     cl()

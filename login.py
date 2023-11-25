@@ -12,15 +12,16 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(800, 300)
+        Dialog.resize(600, 400)
         Dialog.setStyleSheet("QLineEdit{\n"
-"padding:8px;\n"
+"padding-left:50px;\n"
 "background: white;\n"
 "border: 1px solid #005F49;\n"
 "border-radius: 10px\n"
 "}\n"
 "QLineEdit:focus{\n"
 "border: 2px solid #005F49;\n"
+"\n"
 "}\n"
 "QLabel{\n"
 "color:#00557F;\n"
@@ -28,7 +29,7 @@ class Ui_Dialog(object):
 "}\n"
 "QDialog{\n"
 "background-color:#E3F1EE;\n"
-"    background-image: url(icon/bg.jpg);\n"
+"    background-image: url(icon//bg.jpg);\n"
 "}\n"
 "\n"
 "#btn_openregis{\n"
@@ -41,15 +42,17 @@ class Ui_Dialog(object):
 "#btn_login{\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(173, 216, 230, 255), stop:1 rgba(170, 225, 255, 255));\n"
 "    border-radius: 15px;\n"
-"    color: rgb(245, 245, 230);\n"
+"    color:#00557F;\n"
+"    font-weight:bold\n"
 "}\n"
 "#btn_login:hover{\n"
-"    background-color: rgba(173, 216, 230, 255);\n"
-"    color: black;\n"
+"    background-color: #00557F;\n"
+"    border-radius: 15px; \n"
 "    cursor: pointer;\n"
+"    color: white;\n"
 "}")
         self.btn_login = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_login.setGeometry(QtCore.QRect(470, 240, 250, 35))
+        self.btn_login.setGeometry(QtCore.QRect(320, 290, 200, 35))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -61,56 +64,56 @@ class Ui_Dialog(object):
         self.btn_login.setStyleSheet("")
         self.btn_login.setObjectName("btn_login")
         self.btn_openregis = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_openregis.setGeometry(QtCore.QRect(610, 200, 200, 35))
+        self.btn_openregis.setGeometry(QtCore.QRect(400, 240, 200, 35))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(10)
         font.setUnderline(False)
         self.btn_openregis.setFont(font)
         self.btn_openregis.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btn_openregis.setStyleSheet("color: rgb(85, 170, 255);")
         self.btn_openregis.setObjectName("btn_openregis")
         self.txt_username = QtWidgets.QLineEdit(parent=Dialog)
-        self.txt_username.setGeometry(QtCore.QRect(430, 60, 350, 50))
-        self.txt_username.setMinimumSize(QtCore.QSize(350, 48))
+        self.txt_username.setGeometry(QtCore.QRect(230, 100, 350, 50))
+        self.txt_username.setMinimumSize(QtCore.QSize(200, 48))
         self.txt_username.setMaximumSize(QtCore.QSize(500, 500))
         self.txt_username.setObjectName("txt_username")
         self.txt_password = QtWidgets.QLineEdit(parent=Dialog)
-        self.txt_password.setGeometry(QtCore.QRect(430, 140, 350, 50))
-        self.txt_password.setMinimumSize(QtCore.QSize(350, 50))
+        self.txt_password.setGeometry(QtCore.QRect(230, 180, 350, 50))
+        self.txt_password.setMinimumSize(QtCore.QSize(250, 50))
         self.txt_password.setMaximumSize(QtCore.QSize(500, 500))
         self.txt_password.setObjectName("txt_password")
         self.label = QtWidgets.QLabel(parent=Dialog)
-        self.label.setGeometry(QtCore.QRect(380, 140, 45, 45))
-        self.label.setStyleSheet("image: url(icon/password.png);\n"
+        self.label.setGeometry(QtCore.QRect(240, 190, 30, 30))
+        self.label.setStyleSheet("image: url(icon//password.png);\n"
 "background-color: none;\n"
 "border-radius: 10px")
         self.label.setText("")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(parent=Dialog)
-        self.label_2.setGeometry(QtCore.QRect(380, 60, 45, 45))
-        self.label_2.setStyleSheet("image: url(icon/user.png);\n"
+        self.label_2.setGeometry(QtCore.QRect(240, 110, 30, 30))
+        self.label_2.setStyleSheet("image: url(icon//user.png);\n"
 "border-radius: 10px;")
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         self.btn_hidepass = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_hidepass.setGeometry(QtCore.QRect(730, 145, 45, 45))
+        self.btn_hidepass.setGeometry(QtCore.QRect(530, 185, 45, 45))
         self.btn_hidepass.setMinimumSize(QtCore.QSize(40, 40))
         self.btn_hidepass.setMaximumSize(QtCore.QSize(50, 50))
         self.btn_hidepass.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.btn_hidepass.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.btn_hidepass.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icon/hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("icon//hidepass.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_hidepass.setIcon(icon)
         self.btn_hidepass.setObjectName("btn_hidepass")
         self.label_3 = QtWidgets.QLabel(parent=Dialog)
-        self.label_3.setGeometry(QtCore.QRect(-10, 0, 381, 301))
-        self.label_3.setStyleSheet("image: url(icon/manhinhmahoa.jpg);\n"
+        self.label_3.setGeometry(QtCore.QRect(20, 80, 200, 171))
+        self.label_3.setStyleSheet("image: url(icon//manhinhmahoa.jpg);\n"
 "border-radius: 10px;")
         self.label_3.setText("")
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(parent=Dialog)
-        self.label_4.setGeometry(QtCore.QRect(540, 10, 110, 35))
+        self.label_4.setGeometry(QtCore.QRect(310, 50, 250, 35))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -138,4 +141,4 @@ class Ui_Dialog(object):
         self.btn_openregis.setText(_translate("Dialog", "Đăng ký tài khoản"))
         self.txt_username.setPlaceholderText(_translate("Dialog", "Mời bạn nhập vào tài khoản"))
         self.txt_password.setPlaceholderText(_translate("Dialog", "Mời bạn nhập vào mật khẩu"))
-        self.label_4.setText(_translate("Dialog", "Đăng nhập"))
+        self.label_4.setText(_translate("Dialog", "Đăng nhập tài khoản"))
