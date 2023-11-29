@@ -1,9 +1,10 @@
 from PyQt6.QtWidgets import QDialog, QLineEdit, QMessageBox
-from login import Ui_Dialog
+from login2 import Ui_Dialog
 from PyQt6 import QtGui
 from PyQt6.QtCore import pyqtSignal
 from manhinhregis import RegisterDialog
 from mahoaclass import mahoasha3
+from manhinhforgotpass import ForgotPassDialog
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,11 +21,14 @@ class LoginDialog(QDialog):
 
         self.hidepass_state = True
         self.register_dialog = None
+        self.forgotpassdialog = None
+
 
         self.hidepass()
         self.ui.btn_hidepass.clicked.connect(self.hidepass)
         self.ui.btn_login.clicked.connect(self.check_UsPass)
         self.ui.btn_openregis.clicked.connect(self.regis)
+        self.ui.btn_forgotpass.clicked.connect(self.forgotpass)
 
     def hidepass(self):
         self.changeiconhidepass()
@@ -72,7 +76,10 @@ class LoginDialog(QDialog):
     def check_Account(self, us, ps):
         with open(account_file_path, "r", encoding="utf-8") as file:
             for line in file:
-                if line.strip() == us + "," + ps:
+                tach = line.strip().split(",")               
+                username = tach[0]
+                password = tach[1]
+                if us == username and ps == password:       
                     return True
             return False
 
@@ -83,3 +90,6 @@ class LoginDialog(QDialog):
     def set_username_password(self, username, password):
         self.ui.txt_username.setText(username)
         self.ui.txt_password.setText(password)
+    def forgotpass(self):
+        self.forgotpassdialog = ForgotPassDialog()
+        self.forgotpassdialog.exec()

@@ -1,8 +1,10 @@
-from register import Ui_Dialog
+from register2 import Ui_Dialog
 from PyQt6.QtWidgets import QDialog,QLineEdit,QMessageBox
 from PyQt6 import QtGui
 from mahoaclass import mahoasha3 
 import os
+import re
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 account_file_path = os.path.join(script_dir, "data", "account.txt")
 
@@ -53,7 +55,12 @@ class RegisterDialog(QDialog):
     def regis(self):
         if self.check_signup():
             self.accept()
-            self.login_dialog.set_username_password(self.ui.txt_username.text(),self.ui.txt_password.text())
+            username = self.ui.txt_username.text()
+            password = self.ui.txt_password.text()
+            self.login_dialog.set_username_password(username,password)
+
+            
+               
             message_box = QMessageBox()
             message_box.setIcon(QMessageBox.Icon.Information)  # Loại biểu tượng (Information)
             message_box.setWindowTitle('Thông báo')  # Tiêu đề
@@ -66,19 +73,58 @@ class RegisterDialog(QDialog):
         username = self.ui.txt_username.text()
         password = self.ui.txt_password.text()
         password2 = self.ui.txt_repassword.text()
+        email = self.ui.txt_email.text()
+
+        message_box = QMessageBox()
+        message_box.setIcon(QMessageBox.Icon.Information)          
+        
+        if(not self.check_email_format(email)):           
+            message_box.setWindowTitle('Lỗi') 
+            message_box.setText('Bạn nhập sai định dạng email') 
+            message_box.setStandardButtons(QMessageBox.StandardButton.Ok)  
+            message_box.exec() 
+            self.ui.txt_email.setFocus()
+            return False
+       
         if(password != password2):
-            message_box = QMessageBox()
-            message_box.setIcon(QMessageBox.Icon.Information)  # Loại biểu tượng (Information)
-            message_box.setWindowTitle('Lỗi')  # Tiêu đề
-            message_box.setText('Password nhập lại không khớp!')  # Nội dung thông báo
-            message_box.setStandardButtons(QMessageBox.StandardButton.Ok)  # Các nút (OK)
-            message_box.exec()  # Hiển thị hộp thoại và chờ đợi phản hồi từ người dùng
+           
+            message_box.setWindowTitle('Lỗi') 
+            message_box.setText('Password nhập lại không khớp!') 
+            message_box.setStandardButtons(QMessageBox.StandardButton.Ok)  
+            message_box.exec() 
             self.ui.txt_repassword.setFocus()
             return False
         else:
-            us = mahoasha3.MaHoaSha3(username)
-            ps = mahoasha3.MaHoaSha3(password)            
-            
-            with open(account_file_path, "a", encoding='utf-8') as file:
-                file.write(us+","+ps+"\n")
-        return True
+            with open(account_file_path, "r", encoding='utf-8') as file:
+                lines = file.readlines()
+                existing_usernames = [line.split(',')[0] for line in lines]
+                hashed_new_username = mahoasha3.MaHoaSha3(username)
+                existing_emails = [line.split(',')[1].strip() for line in lines] 
+
+                if hashed_new_username in existing_usernames:                   
+                    message_box.setWindowTitle('Lỗi')  
+                    message_box.setText('Tài khoản đã tồn tại!')  
+                    message_box.exec()  
+                    self.ui.txt_username.setFocus()
+                    return False  
+                elif email in existing_emails:       
+                    message_box.setWindowTitle('Lỗi')  
+                    message_box.setText('Email đã tồn tại!')  
+                    message_box.exec() 
+                    self.ui.txt_email.setFocus()
+                    return False  
+                else:
+                    us = mahoasha3.MaHoaSha3(username)
+                    ps = mahoasha3.MaHoaSha3(password)  
+    
+                    with open(account_file_path, "a", encoding='utf-8') as file:
+                        file.write(us + "," + ps +","+email+ "\n")
+                    return True
+        
+
+    def check_email_format(self,email):
+        pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+        if re.match(pattern, email):
+            return True
+        else:
+            return False 
