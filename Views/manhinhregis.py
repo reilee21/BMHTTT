@@ -1,4 +1,4 @@
-from register2 import Ui_Dialog
+from Views.register2 import Ui_Dialog
 from PyQt6.QtWidgets import QDialog,QLineEdit,QMessageBox
 from PyQt6 import QtGui
 from mahoaclass import mahoasha3 
@@ -6,7 +6,7 @@ import os
 import re
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-account_file_path = os.path.join(script_dir, "data", "account.txt")
+account_file_path = os.path.join(script_dir,"..", "data", "account.txt")
 
 class RegisterDialog(QDialog):
     def __init__(self,login_dialog):

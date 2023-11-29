@@ -1,14 +1,14 @@
 from PyQt6.QtWidgets import QDialog, QLineEdit, QMessageBox
-from login2 import Ui_Dialog
+from Views.login2 import Ui_Dialog
 from PyQt6 import QtGui
 from PyQt6.QtCore import pyqtSignal
-from manhinhregis import RegisterDialog
+from Views.manhinhregis import RegisterDialog
 from mahoaclass import mahoasha3
-from manhinhforgotpass import ForgotPassDialog
+from Views.manhinhforgotpass import ForgotPassDialog
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-account_file_path = os.path.join(script_dir, "data", "account.txt")
+account_file_path = os.path.join(script_dir,"..", "data", "account.txt")
 
 
 class LoginDialog(QDialog):

@@ -1,6 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QMainWindow, QApplication, QWidget, QFileDialog, QMessageBox
-from demo2 import Ui_MainWindow
+from Views.demo2 import Ui_MainWindow
+
 from models.baomat import DoiTuongBaoMat
 from mahoaclass.mahoaceasar_class import CCeasar
 from mahoaclass.mahoavignere_class import CVigenere

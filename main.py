@@ -1,9 +1,9 @@
 # main.py
 import sys
-from manhinhchinh import ManHinhChinh
+from Views.manhinhchinh import ManHinhChinh
 from PyQt6.QtWidgets import QMainWindow, QApplication,QDialog,QMessageBox
-from manhinh2 import MyMainWindow
-from manhinhlogin import LoginDialog
+from Views.manhinh2 import MyMainWindow
+from Views.manhinhlogin import LoginDialog
 cur_wd = None
 old_wd = None
 class Main(QMainWindow):

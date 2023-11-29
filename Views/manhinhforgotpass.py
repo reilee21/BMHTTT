@@ -1,7 +1,7 @@
-from forgotpass import Ui_Dialog
+from Views.forgotpass import Ui_Dialog
 from PyQt6.QtWidgets import QDialog,QLineEdit,QMessageBox
 from sendOTP import send_email, generate_otp,verify_otp
-import secrets
+
 import time
 from PyQt6 import QtGui
 from mahoaclass import mahoasha3 
@@ -9,7 +9,7 @@ import os
 import re
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-account_file_path = os.path.join(script_dir, "data", "account.txt")
+account_file_path = os.path.join(script_dir,"..", "data", "account.txt")
 
 class ForgotPassDialog(QDialog):
     def __init__(self):
